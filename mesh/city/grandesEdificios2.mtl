@@ -1,0 +1,24 @@
+# Blender MTL File: 'grandesEdificios.obj'
+# Material Count: 2
+
+newmtl Material.001
+Ns 92.156863
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /home/idiaz/Documentos/PROYECTOS/Comp. Grafica/11-texture-uv-mesh/textures/grafito2.jpg
+
+newmtl Material.001_texture.jpg
+Ns 92.156863
+Ka 1.000000 1.000000 1.000000
+Kd 0.640000 0.640000 0.640000
+Ks 0.500000 0.500000 0.500000
+Ke 0.000000 0.000000 0.000000
+Ni 1.000000
+d 1.000000
+illum 2
+map_Kd /home/idiaz/Documentos/PROYECTOS/Comp. Grafica/11-texture-uv-mesh/textures/texture.jpg
