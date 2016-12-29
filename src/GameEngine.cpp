@@ -165,6 +165,12 @@ void GameEngine::loadScenario(std::string scenario_name){
 					test=new Vehicle(std::string(n.child_value("model")).c_str(),&shader_programme,NULL);
 				}
 
+				vec3 pos=vec3(0.0f,0.0f,0.0f);
+
+				pos.v[0]=atoi(n.child("position").attribute("x").value());
+				pos.v[1]=atoi(n.child("position").attribute("y").value());
+				pos.v[2]=atoi(n.child("position").attribute("z").value());
+
 				xml_node scale=n.child("scale");
 				xml_node rotation=n.child("rotation");
 				
@@ -187,6 +193,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 				}
 				
 				//agregar ese objeto a la lista de objetos a renderizar
+				test->setPos(pos.v[0],pos.v[1],pos.v[2]);
 				addObj(test);
 				//setear el target de la cámara
 				cam->target=test;
