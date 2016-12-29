@@ -44,17 +44,23 @@ void GameEngine::run(){
 	test3->setPos(2.0f,0.0f,3.0f);
 	addObj(test);
 	addObj(test3);
-	addObj(new Object3D("mesh/car/car.obj",&shader_programme,NULL));
+	//addObj(new Object3D("mesh/car/car.obj",&shader_programme,NULL));
 	test->setPos(-17.5f,0.0f,-18.75f);
 	cam->target=test;
 	test->set_scale(0.25f,0.25f,0.25f);
 	test3->set_scale(0.25f,0.25f,0.25f);
+	Object3D* extra=new Object3D("mesh/StreetLamp.obj",&shader_programme,"textures/dark-metal-texture.jpg");
+	addObj(extra);
+	extra->set_scale(5.0f,5.0f,5.0f);
 
 	//Object3D* city=new Object3D("mesh/city.obj",&shader_programme,"textures/grafito1.jpg");
 	//addObj(city);
-	Object3D* floor=new Object3D("mesh/city/floor.obj",&shader_programme,"textures/grafito2.jpg");
+	Object3D* floor=new Object3D("mesh/city/floor.obj",&shader_programme,"textures/Textura-asfalto.jpg");
 	addObj(floor);
 	floor->set_scale(5.0f,5.0f,5.0f);
+	Object3D* floor2=new Object3D("mesh/city/parkingslot.obj",&shader_programme,"textures/3.jpg");
+	addObj(floor2);
+	floor2->set_scale(5.0f,5.0f,5.0f);
 	Object3D* blanquitos=new Object3D("mesh/city/blanquitos.obj",&shader_programme,"textures/sa.jpg");
 	addObj(blanquitos);
 	blanquitos->set_scale(5.0f,5.0f,5.0f);
@@ -67,7 +73,7 @@ void GameEngine::run(){
 	Object3D* laberinto=new Object3D("mesh/city/laberinto.obj",&shader_programme,"textures/bloody.jpg");
 	addObj(laberinto);
 	laberinto->set_scale(5.0f,5.0f,5.0f);
-	Object3D* coliseo=new Object3D("mesh/city/coliseo.obj",&shader_programme,"textures/coliseo.jpg");
+	Object3D* coliseo=new Object3D("mesh/city/collosseum.obj",&shader_programme,"textures/coliseo.jpg");
 	addObj(coliseo);
 	coliseo->set_scale(5.0f,5.0f,5.0f);
 	Object3D* oficinas=new Object3D("mesh/city/oficinas.obj",&shader_programme,"textures/texture.jpg");
@@ -118,7 +124,7 @@ void GameEngine::run(){
 				if(objects[i]->enabled){
 					if(!paused){//si el juego está pausado...
 						objects[i]->update();//actualizar el objeto (posicion,rotacion,etc)
-							//printf("rotacion y:%f\n",test->rotation.y);
+							//printf("%f  %f  %f\n",test->pos.x,test->pos.y,test->pos.z);
 					}
 					objects[i]->render();//renderizar cada objeto en la lista
 				}
