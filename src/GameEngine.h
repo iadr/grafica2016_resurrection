@@ -31,6 +31,9 @@ private:
 	std::vector<Object3D *> objects;//lista de objetos 
 	bool scenario_loaded=false;
 	bool paused=false;
+	bool f1_pressed=false,f2_pressed=false,
+		 f3_pressed=false,f4_pressed=false,
+		 f5_pressed=false,f6_pressed=false;
 public:
 	GameEngine();
 	~GameEngine();

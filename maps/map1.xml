@@ -10,9 +10,6 @@
 		<rotation x="0" y="-1.5f" z="0"></rotation>
 	</player_car>
 
-
-
-
 	<Object3D name="city_floor">
 		<model>mesh/city/parkingslot.obj</model>
 		<texture>textures/3.jpg</texture>
@@ -120,17 +117,6 @@
 		<position></position>
 	</Object3D>
 
-<!-- 
-/Object3D* extra=new Object3D("mesh/StreetLampfoco.obj",&shader_programme,"textures/dark-metal-texture.jpg");
-	//addObj(extra);
-	//extra->set_scale(5.0f,5.0f,5.0f);
-	//Object3D* extra3=new Object3D("mesh/StreetLampsoporte.obj",&shader_programme,"textures/dark-metal-texture.jpg");
-	//addObj(extra3);
-	//extra3->set_scale(5.0f,5.0f,5.0f);
-	//Object3D* extra2=new Object3D("mesh/StreetLampposte.obj",&shader_programme,"textures/dark-metal-texture.jpg");
-	//addObj(extra2);
-	//extra2->set_scale(5.0f,5.0f,5.0f);
--->
 	<Object3D name="StreetLampfoco">
 		<model>mesh/StreetLampfoco.obj</model>
 		<texture>textures/dark-metal-texture.jpg</texture>
@@ -151,14 +137,6 @@
 		<scale x="5" y="5" z="5"></scale>
 		<position></position>
 	</Object3D>
-
-	<!--Object3D name="">
-		<model></model>
-		<texture></texture>
-		<scale x="5" y="5" z="5"></scale>
-		<position></position>
-	</Object3D-->
-
 
 	<camera>
 		<position x="2" y="5" z="0"></position>

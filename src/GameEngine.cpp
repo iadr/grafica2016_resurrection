@@ -92,15 +92,15 @@ void GameEngine::run(){
 	*Object3D* geA=new Object3D("mesh/city/geA.obj",&shader_programme,"textures/alpha.jpg");
 	*addObj(geA);
 	*geA->set_scale(5.0f,5.0f,5.0f);
-	Object3D* geB=new Object3D("mesh/city/geB.obj",&shader_programme,"textures/alpha.jpg");
-	addObj(geB);
-	geB->set_scale(5.0f,5.0f,5.0f);
-	Object3D* geC=new Object3D("mesh/city/geC.obj",&shader_programme,"textures/alpha.jpg");
-	addObj(geC);
-	geC->set_scale(5.0f,5.0f,5.0f);
-	Object3D* geD=new Object3D("mesh/city/geD.obj",&shader_programme,"textures/alpha.jpg");
-	addObj(geD);
-	geD->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* geB=new Object3D("mesh/city/geB.obj",&shader_programme,"textures/alpha.jpg");
+	*addObj(geB);
+	*geB->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* geC=new Object3D("mesh/city/geC.obj",&shader_programme,"textures/alpha.jpg");
+	*addObj(geC);
+	*geC->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* geD=new Object3D("mesh/city/geD.obj",&shader_programme,"textures/alpha.jpg");
+	*addObj(geD);
+	*geD->set_scale(5.0f,5.0f,5.0f);
 
 	//city->set_scale(5.0f,5.0f,5.0f);
 	*/
@@ -143,13 +143,12 @@ void GameEngine::run(){
 void GameEngine::loadScenario(std::string scenario_name){
 	tools::debug("Cargando escenario: "+scenario_name,tools::DBG_MSG);
 	pause(true);
-	objects.clear();
 
 	xml_document doc;
 	std::string file=("maps/"+scenario_name+".xml");
 	xml_parse_result result = doc.load_file(file.c_str());
-
 	if((bool)result){
+		objects.clear();
 		tools::debug("Analizando archivo de mapa...",tools::DBG_INFO);
 		for(xml_node n = doc.first_child().first_child();n;n=n.next_sibling()){
 			std::string nodeName=n.name();
@@ -191,7 +190,6 @@ void GameEngine::loadScenario(std::string scenario_name){
 					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
 					test->rotate(rotation_x,rotation_y,rotation_z);	
 				}
-				
 				//agregar ese objeto a la lista de objetos a renderizar
 				test->setPos(pos.v[0],pos.v[1],pos.v[2]);
 				addObj(test);
@@ -244,8 +242,6 @@ void GameEngine::loadScenario(std::string scenario_name){
 					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
 					obj->rotate(rotation_x,rotation_y,rotation_z);	
 				}
-
-
 				}
 			}else if(nodeName=="camera"){
 				vec3 pos=vec3(0.0f,0.0f,0.0f);
@@ -258,9 +254,8 @@ void GameEngine::loadScenario(std::string scenario_name){
 	}else{
 		tools::debug("Error!. El archivo de mapa solicitado no ha sido encontrado",tools::DBG_ERROR);
 	}
-
 	pause(false);
-	scenario_loaded=true;
+	scenario_loaded=(bool)result;
 }
 
 void GameEngine::readInGameKeys(){
@@ -329,6 +324,42 @@ void GameEngine::readGlobalKeys(){
 	//limpiar pantalla
 	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_C)) {
 		if (system("CLS")) system("clear");
+	}
+
+	if(!f1_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F1)){
+		printf("F1\n");
+		loadScenario("map1");
+		f1_pressed=true;
+	}
+	else if(f1_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F1)){
+		f1_pressed=false;
+	}
+
+	if(!f2_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F2)){
+		printf("F2\n");
+		loadScenario("map2");
+		f2_pressed=true;
+	}
+	else if(f2_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F2)){
+		f2_pressed=false;
+	}
+
+	if(!f3_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F3)){
+		printf("F3\n");
+		loadScenario("map3");
+		f3_pressed=true;
+	}
+	else if(f3_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F3)){
+		f3_pressed=false;
+	}
+
+	if(!f4_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F4)){
+		printf("F4\n");
+		loadScenario("map4");
+		f4_pressed=true;
+	}
+	else if(f4_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F4)){
+		f4_pressed=false;
 	}
 }
 
