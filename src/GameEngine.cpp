@@ -39,6 +39,7 @@ void GameEngine::initGl(){
 void GameEngine::run(){
 	tools::debug("Engine is running",tools::DBG_INFO);
 	paused=false;
+	/*
 	test=new Vehicle("mesh/sedan.obj",&shader_programme,"textures/azulmate2-1.jpg");
 	Vehicle* test3=new Vehicle("mesh/sedan.obj",&shader_programme,"textures/azulmate2-1.jpg");
 	test3->setPos(2.0f,0.0f,3.0f);
@@ -55,42 +56,42 @@ void GameEngine::run(){
 
 	//Object3D* city=new Object3D("mesh/city.obj",&shader_programme,"textures/grafito1.jpg");
 	//addObj(city);
-	Object3D* floor=new Object3D("mesh/city/floor.obj",&shader_programme,"textures/Textura-asfalto.jpg");
-	addObj(floor);
-	floor->set_scale(5.0f,5.0f,5.0f);
-	Object3D* floor2=new Object3D("mesh/city/parkingslot.obj",&shader_programme,"textures/3.jpg");
-	addObj(floor2);
-	floor2->set_scale(5.0f,5.0f,5.0f);
-	Object3D* blanquitos=new Object3D("mesh/city/blanquitos.obj",&shader_programme,"textures/sa.jpg");
-	addObj(blanquitos);
-	blanquitos->set_scale(5.0f,5.0f,5.0f);
-	Object3D* estacionamiento=new Object3D("mesh/city/estacionamiento.obj",&shader_programme,"textures/brick.jpg");
-	addObj(estacionamiento);
-	estacionamiento->set_scale(5.0f,5.0f,5.0f);
-	Object3D* departamentos=new Object3D("mesh/city/departamentos2.obj",&shader_programme,"textures/Building.jpg");
-	addObj(departamentos);
-	departamentos->set_scale(5.0f,5.0f,5.0f);
-	Object3D* laberinto=new Object3D("mesh/city/laberinto.obj",&shader_programme,"textures/bloody.jpg");
-	addObj(laberinto);
-	laberinto->set_scale(5.0f,5.0f,5.0f);
-	Object3D* coliseo=new Object3D("mesh/city/collosseum.obj",&shader_programme,"textures/coliseo.jpg");
-	addObj(coliseo);
-	coliseo->set_scale(5.0f,5.0f,5.0f);
-	Object3D* oficinas=new Object3D("mesh/city/oficinas.obj",&shader_programme,"textures/texture.jpg");
-	addObj(oficinas);
-	oficinas->set_scale(5.0f,5.0f,5.0f);
-	Object3D* residenciales=new Object3D("mesh/city/residenciales.obj",&shader_programme,"textures/edificio.jpg");
-	addObj(residenciales);
-	residenciales->set_scale(5.0f,5.0f,5.0f);
-	Object3D* rojitos=new Object3D("mesh/city/rojitos.obj",&shader_programme,"textures/fachada1.jpg");
-	addObj(rojitos);
-	rojitos->set_scale(5.0f,5.0f,5.0f);
-	Object3D* grandesEdificios=new Object3D("mesh/city/grandesEdificios.obj",&shader_programme,"textures/alpha.jpg");
-	addObj(grandesEdificios);
-	grandesEdificios->set_scale(5.0f,5.0f,5.0f);
-	Object3D* geA=new Object3D("mesh/city/geA.obj",&shader_programme,"textures/alpha.jpg");
-	addObj(geA);
-	geA->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* floor=new Object3D("mesh/city/floor.obj",&shader_programme,"textures/Textura-asfalto.jpg");
+	*addObj(floor);
+	*floor->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* floor2=new Object3D("mesh/city/parkingslot.obj",&shader_programme,"textures/3.jpg");
+	*addObj(floor2);
+	*floor2->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* blanquitos=new Object3D("mesh/city/blanquitos.obj",&shader_programme,"textures/sa.jpg");
+	*addObj(blanquitos);
+	*blanquitos->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* estacionamiento=new Object3D("mesh/city/estacionamiento.obj",&shader_programme,"textures/brick.jpg");
+	*addObj(estacionamiento);
+	*estacionamiento->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* departamentos=new Object3D("mesh/city/departamentos2.obj",&shader_programme,"textures/Building.jpg");
+	*addObj(departamentos);
+	*departamentos->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* laberinto=new Object3D("mesh/city/laberinto.obj",&shader_programme,"textures/bloody.jpg");
+	*addObj(laberinto);
+	*laberinto->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* coliseo=new Object3D("mesh/city/collosseum.obj",&shader_programme,"textures/coliseo.jpg");
+	*addObj(coliseo);
+	*coliseo->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* oficinas=new Object3D("mesh/city/oficinas.obj",&shader_programme,"textures/texture.jpg");
+	*addObj(oficinas);
+	*oficinas->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* residenciales=new Object3D("mesh/city/residenciales.obj",&shader_programme,"textures/edificio.jpg");
+	*addObj(residenciales);
+	*residenciales->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* rojitos=new Object3D("mesh/city/rojitos.obj",&shader_programme,"textures/fachada1.jpg");
+	*addObj(rojitos);
+	*rojitos->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* grandesEdificios=new Object3D("mesh/city/grandesEdificios.obj",&shader_programme,"textures/alpha.jpg");
+	*addObj(grandesEdificios);
+	*grandesEdificios->set_scale(5.0f,5.0f,5.0f);
+	*Object3D* geA=new Object3D("mesh/city/geA.obj",&shader_programme,"textures/alpha.jpg");
+	*addObj(geA);
+	*geA->set_scale(5.0f,5.0f,5.0f);
 	Object3D* geB=new Object3D("mesh/city/geB.obj",&shader_programme,"textures/alpha.jpg");
 	addObj(geB);
 	geB->set_scale(5.0f,5.0f,5.0f);
@@ -102,6 +103,7 @@ void GameEngine::run(){
 	geD->set_scale(5.0f,5.0f,5.0f);
 
 	//city->set_scale(5.0f,5.0f,5.0f);
+	*/
 	while(!glfwWindowShouldClose (g_window)){//bucle principal del motor de juegos
 		static double previous_seconds = glfwGetTime ();
 		double current_seconds = glfwGetTime ();
@@ -139,6 +141,118 @@ void GameEngine::run(){
 }
 
 void GameEngine::loadScenario(std::string scenario_name){
+	tools::debug("Cargando escenario: "+scenario_name,tools::DBG_MSG);
+	pause(true);
+	objects.clear();
+
+	xml_document doc;
+	std::string file=("maps/"+scenario_name+".xml");
+	xml_parse_result result = doc.load_file(file.c_str());
+
+	if((bool)result){
+		tools::debug("Analizando archivo de mapa...",tools::DBG_INFO);
+		for(xml_node n = doc.first_child().first_child();n;n=n.next_sibling()){
+			std::string nodeName=n.name();
+			std::cout<<"Nodo: "<<nodeName<<std::endl;
+			if(nodeName=="player_car"){
+				//obtener la textura
+				std::string tex=(n.child_value("texture"));
+				//instanciar un objeto car con el modelo especificado en el XML
+				
+				if(tex.length()>0){// si se encontro alguna textura especificada se asigna al objeto
+					test=new Vehicle(std::string(n.child_value("model")).c_str(),&shader_programme,tex.c_str());
+				}else{//sino se usa una textura NULL
+					test=new Vehicle(std::string(n.child_value("model")).c_str(),&shader_programme,NULL);
+				}
+
+				xml_node scale=n.child("scale");
+				xml_node rotation=n.child("rotation");
+				
+				if (scale!=NULL){//si se encontró un nodo de escalado dentro de player_car...
+					float scale_x=1.0f,scale_y=1.0f,scale_z=1.0f;
+					scale_x=atof(scale.attribute("x").value());
+					scale_y=atof(scale.attribute("y").value());
+					scale_z=atof(scale.attribute("z").value());
+					printf("Escalando a: (%.2f,%.2f,%.2f)\n",scale_x,scale_y,scale_z);
+					test->set_scale(scale_x,scale_y,scale_z);
+				}
+				
+				if(rotation!=NULL){
+					float rotation_x=1.0f,rotation_y=1.0f,rotation_z=1.0f;
+					rotation_x=atof(rotation.attribute("x").value());
+					rotation_y=atof(rotation.attribute("y").value());
+					rotation_z=atof(rotation.attribute("z").value());
+					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
+					test->rotate(rotation_x,rotation_y,rotation_z);	
+				}
+				
+				//agregar ese objeto a la lista de objetos a renderizar
+				addObj(test);
+				//setear el target de la cámara
+				cam->target=test;
+			}else if(nodeName=="Object3D"){
+				Object3D *obj;
+				std::string objectName=std::string(n.attribute("name").value());
+				std::string model=n.child_value("model");
+				vec3 pos=vec3(0.0f,0.0f,0.0f);
+
+				pos.v[0]=atoi(n.child("position").attribute("x").value());
+				pos.v[1]=atoi(n.child("position").attribute("y").value());
+				pos.v[2]=atoi(n.child("position").attribute("z").value());
+
+				std::cout<<"|->nombre:"<<objectName<<std::endl;
+				std::cout<<"|->modelo:"<<model<<std::endl;
+				std::cout<<"|->posision:"<<"("<<pos.v[0]<<","<<pos.v[1]<<","<<pos.v[2]<<")"<<std::endl;
+
+				//obtener la textura
+				std::string tex=(n.child_value("texture"));
+				//instanciar un objeto 3D con el modelo especificado en el XML
+				
+				if(tex.length()>0){// si se encontro alguna textura especificada se asigna al objeto
+					obj=new Object3D(std::string(n.child_value("model")).c_str(),&shader_programme,tex.c_str());
+				}else{//sino se usa una textura NULL
+					obj=new Object3D(std::string(n.child_value("model")).c_str(),&shader_programme,NULL);
+				}
+
+				if(obj){//si se logró crear el objeto3d
+					obj->name=objectName;
+					obj->setPos(pos.v[0],pos.v[1],pos.v[2]);
+					addObj(obj);
+					xml_node scale=n.child("scale");
+					xml_node rotation=n.child("rotation");
+					if (scale!=NULL){//si se encontró un nodo de escalado dentro de player_car...
+						float scale_x=1.0f,scale_y=1.0f,scale_z=1.0f;
+						scale_x=atof(scale.attribute("x").value());
+						scale_y=atof(scale.attribute("y").value());
+						scale_z=atof(scale.attribute("z").value());
+						printf("Escalando a: (%.2f,%.2f,%.2f)\n",scale_x,scale_y,scale_z);
+						obj->set_scale(scale_x,scale_y,scale_z);
+					}
+
+				if(rotation!=NULL){
+					float rotation_x=1.0f,rotation_y=1.0f,rotation_z=1.0f;
+					rotation_x=atof(rotation.attribute("x").value());
+					rotation_y=atof(rotation.attribute("y").value());
+					rotation_z=atof(rotation.attribute("z").value());
+					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
+					obj->rotate(rotation_x,rotation_y,rotation_z);	
+				}
+
+
+				}
+			}else if(nodeName=="camera"){
+				vec3 pos=vec3(0.0f,0.0f,0.0f);
+				pos.v[0]=atoi(n.child("position").attribute("x").value());
+				pos.v[1]=atoi(n.child("position").attribute("y").value());
+				pos.v[2]=atoi(n.child("position").attribute("z").value());
+				cam->setPos(pos.v[0],pos.v[1],pos.v[2]);
+			}
+		}
+	}else{
+		tools::debug("Error!. El archivo de mapa solicitado no ha sido encontrado",tools::DBG_ERROR);
+	}
+
+	pause(false);
 	scenario_loaded=true;
 }
 
@@ -213,4 +327,7 @@ void GameEngine::readGlobalKeys(){
 
 void GameEngine::addObj(Object3D *obj){
 	objects.push_back(obj);
+}
+void GameEngine::pause(bool b){
+	this->paused=b;
 }

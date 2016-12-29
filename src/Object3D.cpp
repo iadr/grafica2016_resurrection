@@ -76,7 +76,7 @@ void Object3D::rotate(float x,float y,float z){
 	M=glm::translate(M,pos);
 	M=glm::scale(M,scale);
 	M=glm::rotate(M,-rotation.y,glm::vec3(0.0f,1.0f,0.0f));
-
+	
 }
 
 void Object3D::render(){
@@ -88,7 +88,7 @@ void Object3D::render(){
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(this->vao);
     glBindTexture(GL_TEXTURE_2D, tex);
-		glUniformMatrix4fv(mat_location, 1, GL_FALSE, glm::value_ptr(M));
+	glUniformMatrix4fv(mat_location, 1, GL_FALSE, glm::value_ptr(M));
     glDrawElements(GL_TRIANGLES, FFACTOR*numFaces, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
 
@@ -103,7 +103,7 @@ bool Object3D::load_mesh(const char* file_name){
 		return false;
 	}
 	const aiMesh* mesh = scene->mMeshes[0];
-
+	
 	this->numvertices=mesh->mNumVertices;
 	this->numFaces   =mesh->mNumFaces;
 	FTYPE=GL_TRIANGLES;
@@ -147,7 +147,7 @@ bool Object3D::load_mesh(const char* file_name){
 		indices = (GLuint*)malloc(numFaces * FFACTOR * sizeof (GLuint));
 		for (int i = 0; i < numFaces; ++i) {
 		    for (int j = 0; j < FFACTOR; ++j) {
-               indices[FFACTOR*i + j] = mesh->mFaces[i].mIndices[j];
+               indices[FFACTOR*i + j] = mesh->mFaces[i].mIndices[j]; 
             }
 		}
 	}
@@ -158,12 +158,12 @@ bool Object3D::load_mesh(const char* file_name){
 
 	glGenVertexArrays (1, &vao);
     glBindVertexArray (vao);
-
+  
     if(&points){
         glGenBuffers (1, &vbo);
         glBindBuffer (GL_ARRAY_BUFFER, vbo);
         glBufferData ( GL_ARRAY_BUFFER, 3 * numvertices * sizeof(GLfloat), points, GL_STATIC_DRAW);
-
+    	
         if(indices){
             glGenBuffers(1, &ebo);
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
@@ -171,9 +171,9 @@ bool Object3D::load_mesh(const char* file_name){
         }
         glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
         glEnableVertexAttribArray (0);
-
+        
     }
-
+  
     if(normals){
         glGenBuffers (1, &nbo);
         glBindBuffer (GL_ARRAY_BUFFER, nbo);

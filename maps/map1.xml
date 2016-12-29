@@ -4,13 +4,134 @@
 	</player>
 	<player_car>
 		<model>mesh/sedan.obj</model>
+		<texture>textures/azulmate2-1.jpg</texture>
 		<position x="0" y="0" z="0"></position>
+		<scale x="0.25" y="0.25" z="0.25"></scale>
+		<rotation x="0" y="0" z="0"></rotation>
 	</player_car>
-	
-	<object3D name="city">
-		<model>mesh/city.obj</model>
+
+	<Object3D name="lamp">
+		<model>mesh/StreetLamp.obj</model>
+		<texture>textures/dark-metal-texture.jpg</texture>
 		<position x="0" y="0" z="0" ></position>
-	</object3D>
+		<scale x="5" y="5" z="5"></scale>
+	</Object3D>
+
+	<Object3D name="city_floor">
+		<model>mesh/city/parkingslot.obj</model>
+		<texture>textures/3.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="city_floor_2">
+		<model>mesh/city/floor.obj</model>
+		<texture>textures/Textura-asfalto.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="city_blanquitos">
+		<model>mesh/city/blanquitos.obj</model>
+		<texture>textures/sa.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="estacionamiento">
+		<model>mesh/city/estacionamiento.obj</model>
+		<texture>textures/brick.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="departamentos">
+		<model>mesh/city/departamentos2.obj</model>
+		<texture>textures/Building.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="laberinto">
+		<model>mesh/city/laberinto.obj</model>
+		<texture>textures/bloody.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="coliseo">
+		<model>mesh/city/collosseum.obj</model>
+		<texture>textures/coliseo.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="oficinas">
+		<model>mesh/city/oficinas.obj</model>
+		<texture>textures/texture.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="residenciales">
+		<model>mesh/city/residenciales.obj</model>
+		<texture>textures/edificio.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="rojitos">
+		<model>mesh/city/rojitos.obj</model>
+		<texture>textures/fachada1.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="gran_edificio_1">
+		<model>mesh/city/grandesEdificios.obj</model>
+		<texture>textures/alpha.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+
+	<Object3D name="gran_edificio_2">
+		<model>mesh/city/geA.obj</model>
+		<texture>textures/alpha.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="gran_edificio_3">
+		<model>mesh/city/geB.obj</model>
+		<texture>textures/alpha.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+
+	<Object3D name="gran_edificio_3">
+		<model>mesh/city/geC.obj</model>
+		<texture>textures/alpha.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<Object3D name="gran_edificio_3">
+		<model>mesh/city/geD.obj</model>
+		<texture>textures/alpha.jpg</texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D>
+
+	<!--Object3D name="">
+		<model></model>
+		<texture></texture>
+		<scale x="5" y="5" z="5"></scale>
+		<position></position>
+	</Object3D-->
+
+
 	<camera>
 		<position x="2" y="5" z="0"></position>
 	</camera>

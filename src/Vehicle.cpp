@@ -60,18 +60,19 @@ void Vehicle::centrar(){
 }
 
 void Vehicle::decelerate(){
+	float factor=4.0f;//4veces mas fuerte que la aceleracion 
 	if(fabs(velocity)<0.00125f){
 		velocity=0.0f;
 	}else{
 		if(velocity>0.0f){
 			//printf("desacelerando...\n");
-			velocity-=decel;
+			velocity-=factor*decel;
 			pos.x-=velocity*cos(rotation.y);
 			pos.z-=velocity*sin(rotation.y);
 		}
 		if(velocity<0.0f){
 			//printf("desacelerando...\n");
-			velocity+=decel;
+			velocity+=factor*decel;
 			pos.x-=velocity*cos(rotation.y);
 			pos.z-=velocity*sin(rotation.y);
 		}

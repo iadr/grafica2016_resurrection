@@ -16,13 +16,13 @@
 #include "Camera.h"
 
 #include "KeyTools.h"
-
+#include "pugixml.hpp"
 
 #define VERTEX_SHADER_FILE "shaders/test_vs.glsl.cpp"
 #define FRAGMENT_SHADER_FILE "shaders/test_fs.glsl.cpp"
 
 //using namespace glm;
-
+using namespace pugi;
 class GameEngine{
 private:
 	//Otros
@@ -42,5 +42,6 @@ public:
 	void readInGameKeys();
 	void readGlobalKeys();
 	void addObj(Object3D *obj);
+	void pause(bool);
 };
 #endif
