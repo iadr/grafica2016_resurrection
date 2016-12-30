@@ -38,7 +38,7 @@ void GameEngine::initGl(){
 void GameEngine::run(){
 	tools::debug("Engine is running",tools::DBG_INFO);
 	//paused=false;
-	
+	GLuint filtro_loc= glGetUniformLocation (shader_programme, "filtropantalla");//conexion fragment
 	while(!glfwWindowShouldClose (g_window)){//bucle principal del motor de juegos
 		static double previous_seconds = glfwGetTime ();
 		double current_seconds = glfwGetTime ();
@@ -65,6 +65,7 @@ void GameEngine::run(){
 						objects[i]->update();//actualizar el objeto (posicion,rotacion,etc)
 							//printf("%f  %f  %f\n",test->pos.x,test->pos.y,test->pos.z);
 					}
+					if(i>0) glUniform1i(filtro_loc,0);//determina si utilizamos la luz o solo la textura
 					objects[i]->render();//renderizar cada objeto en la lista
 					if(objects[i]->collider){
 						std::cout<<objects[i]->collider->pos_x;
@@ -196,9 +197,11 @@ void GameEngine::readGlobalKeys(){
 }
 
 void GameEngine::showMainMenu(){
+	GLuint filtro_loc= glGetUniformLocation (shader_programme, "filtropantalla");
 	Object3D * menu=new Object3D("mesh/pantalla.obj",&shader_programme,"textures/city1-3.png");
 	menu->setPos(0,5,0);
 	//menu->set_scale(2,2,2);
+	glUniform1i(filtro_loc,1);
 	addObj(menu);
 	cam->setPos(0,-1,0);
 	cam->target=menu;
@@ -224,7 +227,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 				//obtener la textura
 				std::string tex=(n.child_value("texture"));
 				//instanciar un objeto car con el modelo especificado en el XML
-				
+
 				if(tex.length()>0){// si se encontro alguna textura especificada se asigna al objeto
 					test=new Vehicle(std::string(n.child_value("model")).c_str(),&shader_programme,tex.c_str());
 				}else{//sino se usa una textura NULL
@@ -246,7 +249,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 
 				xml_node scale=n.child("scale");
 				xml_node rotation=n.child("rotation");
-				
+
 				if (scale!=NULL){//si se encontró un nodo de escalado dentro de player_car...
 					float scale_x=1.0f,scale_y=1.0f,scale_z=1.0f;
 					scale_x=atof(scale.attribute("x").value());
@@ -255,14 +258,14 @@ void GameEngine::loadScenario(std::string scenario_name){
 					printf("Escalando a: (%.2f,%.2f,%.2f)\n",scale_x,scale_y,scale_z);
 					test->set_scale(scale_x,scale_y,scale_z);
 				}
-				
+
 				if(rotation!=NULL){
 					float rotation_x=1.0f,rotation_y=1.0f,rotation_z=1.0f;
 					rotation_x=atof(rotation.attribute("x").value());
 					rotation_y=atof(rotation.attribute("y").value());
 					rotation_z=atof(rotation.attribute("z").value());
 					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
-					test->rotate(rotation_x,rotation_y,rotation_z);	
+					test->rotate(rotation_x,rotation_y,rotation_z);
 				}
 
 				//agregar ese objeto a la lista de objetos a renderizar
@@ -287,7 +290,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 				//obtener la textura
 				std::string tex=(n.child_value("texture"));
 				//instanciar un objeto 3D con el modelo especificado en el XML
-				
+
 
 				if(tex.length()>0){// si se encontro alguna textura especificada se asigna al objeto
 					obj=new Object3D(std::string(n.child_value("model")).c_str(),&shader_programme,tex.c_str());
@@ -316,7 +319,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 					rotation_y=atof(rotation.attribute("y").value());
 					rotation_z=atof(rotation.attribute("z").value());
 					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
-					obj->rotate(rotation_x,rotation_y,rotation_z);	
+					obj->rotate(rotation_x,rotation_y,rotation_z);
 				}
 				}
 			}else if(nodeName=="camera"){
