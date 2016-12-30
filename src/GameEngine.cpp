@@ -12,7 +12,6 @@ GameEngine::GameEngine(){
 	debug_mode=false;
 	tools::debug("GameEngine created",tools::DBG_INFO);
 	keyTools::init_keys();
-	//printf("Key:%i\n",key_status.count;
 }
 
 void GameEngine::setWindowSize(int w,int h){
@@ -38,72 +37,8 @@ void GameEngine::initGl(){
 
 void GameEngine::run(){
 	tools::debug("Engine is running",tools::DBG_INFO);
-	paused=false;
-	/*
-	test=new Vehicle("mesh/sedan.obj",&shader_programme,"textures/azulmate2-1.jpg");
-	Vehicle* test3=new Vehicle("mesh/sedan.obj",&shader_programme,"textures/azulmate2-1.jpg");
-	test3->setPos(2.0f,0.0f,3.0f);
-	addObj(test);
-	addObj(test3);
-	//addObj(new Object3D("mesh/car/car.obj",&shader_programme,NULL));
-	test->setPos(-17.5f,0.0f,-18.75f);
-	cam->target=test;
-	test->set_scale(0.25f,0.25f,0.25f);
-	test3->set_scale(0.25f,0.25f,0.25f);
-	Object3D* extra=new Object3D("mesh/StreetLamp.obj",&shader_programme,"textures/dark-metal-texture.jpg");
-	addObj(extra);
-	extra->set_scale(5.0f,5.0f,5.0f);
-
-	//Object3D* city=new Object3D("mesh/city.obj",&shader_programme,"textures/grafito1.jpg");
-	//addObj(city);
-	*Object3D* floor=new Object3D("mesh/city/floor.obj",&shader_programme,"textures/Textura-asfalto.jpg");
-	*addObj(floor);
-	*floor->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* floor2=new Object3D("mesh/city/parkingslot.obj",&shader_programme,"textures/3.jpg");
-	*addObj(floor2);
-	*floor2->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* blanquitos=new Object3D("mesh/city/blanquitos.obj",&shader_programme,"textures/sa.jpg");
-	*addObj(blanquitos);
-	*blanquitos->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* estacionamiento=new Object3D("mesh/city/estacionamiento.obj",&shader_programme,"textures/brick.jpg");
-	*addObj(estacionamiento);
-	*estacionamiento->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* departamentos=new Object3D("mesh/city/departamentos2.obj",&shader_programme,"textures/Building.jpg");
-	*addObj(departamentos);
-	*departamentos->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* laberinto=new Object3D("mesh/city/laberinto.obj",&shader_programme,"textures/bloody.jpg");
-	*addObj(laberinto);
-	*laberinto->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* coliseo=new Object3D("mesh/city/collosseum.obj",&shader_programme,"textures/coliseo.jpg");
-	*addObj(coliseo);
-	*coliseo->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* oficinas=new Object3D("mesh/city/oficinas.obj",&shader_programme,"textures/texture.jpg");
-	*addObj(oficinas);
-	*oficinas->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* residenciales=new Object3D("mesh/city/residenciales.obj",&shader_programme,"textures/edificio.jpg");
-	*addObj(residenciales);
-	*residenciales->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* rojitos=new Object3D("mesh/city/rojitos.obj",&shader_programme,"textures/fachada1.jpg");
-	*addObj(rojitos);
-	*rojitos->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* grandesEdificios=new Object3D("mesh/city/grandesEdificios.obj",&shader_programme,"textures/alpha.jpg");
-	*addObj(grandesEdificios);
-	*grandesEdificios->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* geA=new Object3D("mesh/city/geA.obj",&shader_programme,"textures/alpha.jpg");
-	*addObj(geA);
-	*geA->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* geB=new Object3D("mesh/city/geB.obj",&shader_programme,"textures/alpha.jpg");
-	*addObj(geB);
-	*geB->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* geC=new Object3D("mesh/city/geC.obj",&shader_programme,"textures/alpha.jpg");
-	*addObj(geC);
-	*geC->set_scale(5.0f,5.0f,5.0f);
-	*Object3D* geD=new Object3D("mesh/city/geD.obj",&shader_programme,"textures/alpha.jpg");
-	*addObj(geD);
-	*geD->set_scale(5.0f,5.0f,5.0f);
-
-	//city->set_scale(5.0f,5.0f,5.0f);
-	*/
+	//paused=false;
+	
 	while(!glfwWindowShouldClose (g_window)){//bucle principal del motor de juegos
 		static double previous_seconds = glfwGetTime ();
 		double current_seconds = glfwGetTime ();
@@ -119,9 +54,11 @@ void GameEngine::run(){
 		//si algun escenario ha sido cargado
 		readGlobalKeys();//leer teclas "globales"
 		if(scenario_loaded){
-			if(!paused){
+			//printf("Flag 1!\n");
+			if(paused==false){
 				readInGameKeys();//leer teclas de interaccion dentro del juego
 			}
+			//printf("Flag 2!\n");
 			for(int i=0;i<objects.size();i++){
 				if(objects[i]->enabled){
 					if(!paused){//si el juego está pausado...
@@ -138,6 +75,132 @@ void GameEngine::run(){
 	glfwTerminate();
 
 	tools::debug("Engine is stopped",tools::DBG_INFO);
+}
+
+void GameEngine::readInGameKeys(){
+
+	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_W)) {
+		//tools::debug("UP",tools::DBG_KEY_PRESSED);
+		//test->move(0.025,0.0f,0.0f);
+		cam->zoom(-0.125f);
+	}
+	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_S)) {
+		//tools::debug("UP",tools::DBG_KEY_PRESSED);
+		cam->zoom(+0.125f);
+		//test->move(-0.025,0.0f,0.0f);
+	}
+
+	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_A)) {
+		//tools::debug("UP",tools::DBG_KEY_PRESSED);
+		//test->move(0.0f,0.0f,0.025);
+		cam->rotate_around(0.125f);
+	}
+
+	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_D)) {
+		//tools::debug("UP",tools::DBG_KEY_PRESSED);
+		//test->move(0.0f,0.0f,-0.025);
+		cam->rotate_around(-0.125f);
+	}
+
+	if (GLFW_RELEASE == glfwGetKey (g_window, GLFW_KEY_UP) && GLFW_RELEASE == glfwGetKey (g_window, GLFW_KEY_DOWN)) {
+		//keyTools::release(K_UP_ARROW);
+		//keyTools::press(K_UP_ARROW);
+		if(test!=NULL){
+			test->decelerate();
+		}
+	}else{
+		if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_UP)) {
+			tools::debug("UP",tools::DBG_KEY_PRESSED);
+			//keyTools::press(K_UP_ARROW);
+			if(test!=NULL){
+				test->move_forward();
+			}
+		}
+		if(GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_DOWN)){
+			tools::debug("DOWN",tools::DBG_KEY_PRESSED);
+			if(test!=NULL){
+				test->move_backward();
+			}
+		}
+	}
+	if(GLFW_RELEASE == glfwGetKey (g_window, GLFW_KEY_LEFT) && GLFW_RELEASE == glfwGetKey (g_window, GLFW_KEY_RIGHT)){
+		test->centrar();
+	}else{
+		if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_LEFT)) {
+			tools::debug("LEFT",tools::DBG_KEY_PRESSED);
+			if(test!=NULL){
+				test->girar(-1);
+			}
+			//test->rotate(0.0f,-0.125f,0.0f);
+		}
+		if(GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_RIGHT)){
+			tools::debug("RIGHT",tools::DBG_KEY_PRESSED);
+			//test->rotate(0.0f,+0.125f,0.0f);
+			if(test!=NULL){
+				test->girar(1);
+			}
+		}
+	}
+}
+
+void GameEngine::readGlobalKeys(){
+	//salir con ESC
+	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_ESCAPE)) {
+		glfwSetWindowShouldClose (g_window, 1);
+		tools::debug("ESC",tools::DBG_KEY_PRESSED);
+		tools::debug("ESC pressed... quitting.",tools::DBG_INFO);
+	}
+	//limpiar pantalla
+	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_C)) {
+		if (system("CLS")) system("clear");
+	}
+
+	if(!f1_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F1)){
+		printf("F1\n");
+		loadScenario("map1");
+		f1_pressed=true;
+	}
+	else if(f1_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F1)){
+		f1_pressed=false;
+	}
+
+	if(!f2_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F2)){
+		printf("F2\n");
+		loadScenario("map2");
+		f2_pressed=true;
+	}
+	else if(f2_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F2)){
+		f2_pressed=false;
+	}
+
+	if(!f3_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F3)){
+		printf("F3\n");
+		loadScenario("map3");
+		f3_pressed=true;
+	}
+	else if(f3_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F3)){
+		f3_pressed=false;
+	}
+
+	if(!f4_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F4)){
+		printf("F4\n");
+		loadScenario("map4");
+		f4_pressed=true;
+	}
+	else if(f4_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F4)){
+		f4_pressed=false;
+	}
+}
+
+void GameEngine::showMainMenu(){
+	Object3D * menu=new Object3D("mesh/plane.obj",&shader_programme,"textures/city1-3.png");
+	menu->setPos(0,5,0);
+	addObj(menu);
+	cam->setPos(0,-1,0);
+	cam->target=menu;
+	cam->zoom(-2);
+	scenario_loaded=true;
+	paused=true;
 }
 
 void GameEngine::loadScenario(std::string scenario_name){
@@ -256,111 +319,6 @@ void GameEngine::loadScenario(std::string scenario_name){
 	}
 	pause(false);
 	scenario_loaded=(bool)result;
-}
-
-void GameEngine::readInGameKeys(){
-
-	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_W)) {
-		//tools::debug("UP",tools::DBG_KEY_PRESSED);
-		//test->move(0.025,0.0f,0.0f);
-		cam->zoom(-0.125f);
-	}
-	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_S)) {
-		//tools::debug("UP",tools::DBG_KEY_PRESSED);
-		cam->zoom(+0.125f);
-		//test->move(-0.025,0.0f,0.0f);
-	}
-
-	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_A)) {
-		//tools::debug("UP",tools::DBG_KEY_PRESSED);
-		//test->move(0.0f,0.0f,0.025);
-		cam->rotate_around(0.125f);
-	}
-
-	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_D)) {
-		//tools::debug("UP",tools::DBG_KEY_PRESSED);
-		//test->move(0.0f,0.0f,-0.025);
-		cam->rotate_around(-0.125f);
-	}
-
-	if (GLFW_RELEASE == glfwGetKey (g_window, GLFW_KEY_UP) && GLFW_RELEASE == glfwGetKey (g_window, GLFW_KEY_DOWN)) {
-		//keyTools::release(K_UP_ARROW);
-		//keyTools::press(K_UP_ARROW);
-		test->decelerate();
-	}else{
-		if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_UP)) {
-			tools::debug("UP",tools::DBG_KEY_PRESSED);
-			//keyTools::press(K_UP_ARROW);
-			test->move_forward();
-		}
-		if(GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_DOWN)){
-			tools::debug("DOWN",tools::DBG_KEY_PRESSED);
-			test->move_backward();
-		}
-	}
-	if(GLFW_RELEASE == glfwGetKey (g_window, GLFW_KEY_LEFT) && GLFW_RELEASE == glfwGetKey (g_window, GLFW_KEY_RIGHT)){
-		test->centrar();
-	}else{
-		if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_LEFT)) {
-			tools::debug("LEFT",tools::DBG_KEY_PRESSED);
-			test->girar(-1);
-			//test->rotate(0.0f,-0.125f,0.0f);
-		}
-		if(GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_RIGHT)){
-			tools::debug("RIGHT",tools::DBG_KEY_PRESSED);
-			//test->rotate(0.0f,+0.125f,0.0f);
-			test->girar(1);
-		}
-	}
-}
-
-void GameEngine::readGlobalKeys(){
-	//salir con ESC
-	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_ESCAPE)) {
-		glfwSetWindowShouldClose (g_window, 1);
-		tools::debug("ESC",tools::DBG_KEY_PRESSED);
-		tools::debug("ESC pressed... quitting.",tools::DBG_INFO);
-	}
-	//limpiar pantalla
-	if (GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_C)) {
-		if (system("CLS")) system("clear");
-	}
-
-	if(!f1_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F1)){
-		printf("F1\n");
-		loadScenario("map1");
-		f1_pressed=true;
-	}
-	else if(f1_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F1)){
-		f1_pressed=false;
-	}
-
-	if(!f2_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F2)){
-		printf("F2\n");
-		loadScenario("map2");
-		f2_pressed=true;
-	}
-	else if(f2_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F2)){
-		f2_pressed=false;
-	}
-
-	if(!f3_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F3)){
-		printf("F3\n");
-		loadScenario("map3");
-		f3_pressed=true;
-	}
-	else if(f3_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F3)){
-		f3_pressed=false;
-	}
-
-	if(!f4_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F4)){
-		printf("F4\n");
-		loadScenario("map4");
-		f4_pressed=true;
-	}
-	else if(f4_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F4)){
-		f4_pressed=false;
-	}
 }
 
 void GameEngine::addObj(Object3D *obj){

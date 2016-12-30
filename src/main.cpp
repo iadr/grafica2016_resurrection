@@ -5,6 +5,7 @@ int main(int argc, char const *argv[]){
 	ge->setWindowSize(800,600);	
 	ge->initGl();
 	//ge->loadScenario("map1");
+	ge->showMainMenu();
 	ge->run();
 	return 0;
 }

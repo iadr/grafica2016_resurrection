@@ -46,5 +46,6 @@ public:
 	void readGlobalKeys();
 	void addObj(Object3D *obj);
 	void pause(bool);
+	void showMainMenu();
 };
 #endif
