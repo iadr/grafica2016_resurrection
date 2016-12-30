@@ -8,6 +8,7 @@
 		<position x="-18.0f" y="0" z="-18.75f"></position>
 		<scale x="0.25" y="0.25" z="0.25"></scale>
 		<rotation x="0" y="-1.5f" z="0"></rotation>
+		<collider type="box" width="1" depth="1" ></collider>
 	</player_car>
 
 	<Object3D name="city_floor">

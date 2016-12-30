@@ -1,4 +1,4 @@
-GL_LOG_FILE log. local time Thu Dec 29 22:23:27 2016
+GL_LOG_FILE log. local time Fri Dec 30 13:48:04 2016
 
 starting GLFW 3.2.1 X11 GLX EGL clock_gettime /dev/js Xf86vm sharedrenderer: Gallium 0.4 on AMD ARUBA (DRM 2.46.0 / 4.8.0-32-generic, LLVM 3.8.1)
 version: 3.0 Mesa 12.0.3

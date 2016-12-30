@@ -1,5 +1,5 @@
-src=src/*.cpp src/*.c
-output=bin/prog
+src= src/*.c src/*.cpp 
+output= bin/prog
 libs=-lGL -lGLEW -lglfw -lassimp 
 debug=1
 all:

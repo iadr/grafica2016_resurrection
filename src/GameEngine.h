@@ -18,6 +18,8 @@
 #include "KeyTools.h"
 #include "pugixml.hpp"
 
+#include "BoxCollider.h"
+
 #define VERTEX_SHADER_FILE "shaders/test_vs.glsl.cpp"
 #define FRAGMENT_SHADER_FILE "shaders/test_fs.glsl.cpp"
 

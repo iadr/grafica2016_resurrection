@@ -1,0 +1,139 @@
+clear
+[3J[H[2J./bin/prog 1
+mesh loaded
+Loading texture:textures/city1-3.png
+F1
+Nodo: player
+Nodo: player_car
+mesh loaded
+Loading texture:textures/azulmate2-1.jpg
+Escalando a: (0.25,0.25,0.25)
+Rotando a: (0.00,-1.50,0.00)
+Nodo: Object3D
+|->nombre:city_floor
+|->modelo:mesh/city/parkingslot.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/3.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:city_floor_2
+|->modelo:mesh/city/floor.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/Textura-asfalto.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:city_blanquitos
+|->modelo:mesh/city/blanquitos.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/sa.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:estacionamiento
+|->modelo:mesh/city/estacionamiento.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/brick.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:departamentos
+|->modelo:mesh/city/departamentos2.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/Building.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:laberinto
+|->modelo:mesh/city/laberinto.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/bloody.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:coliseo
+|->modelo:mesh/city/collosseum.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/coliseo.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:oficinas
+|->modelo:mesh/city/oficinas.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/texture.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:residenciales
+|->modelo:mesh/city/residenciales.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/edificio.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:rojitos
+|->modelo:mesh/city/rojitos.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/fachada1.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:gran_edificio_1
+|->modelo:mesh/city/grandesEdificios.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/alpha.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:gran_edificio_2
+|->modelo:mesh/city/geA.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/alpha.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:gran_edificio_3
+|->modelo:mesh/city/geB.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/alpha.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:gran_edificio_3
+|->modelo:mesh/city/geC.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/alpha.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:gran_edificio_3
+|->modelo:mesh/city/geD.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/alpha.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:StreetLampfoco
+|->modelo:mesh/StreetLampfoco.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/dark-metal-texture.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:StreetLampsoporte
+|->modelo:mesh/StreetLampsoporte.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/dark-metal-texture.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: Object3D
+|->nombre:StreetLampposte
+|->modelo:mesh/StreetLampposte.obj
+|->posision:(0,0,0)
+mesh loaded
+Loading texture:textures/dark-metal-texture.jpg
+Escalando a: (5.00,5.00,5.00)
+Nodo: camera
+Makefile:10: fallo en las instrucciones para el objetivo 'run'

@@ -66,6 +66,9 @@ void GameEngine::run(){
 							//printf("%f  %f  %f\n",test->pos.x,test->pos.y,test->pos.z);
 					}
 					objects[i]->render();//renderizar cada objeto en la lista
+					if(objects[i]->collider){
+						std::cout<<objects[i]->collider->pos_x;
+					}
 				}
 			}
 		}
@@ -193,12 +196,13 @@ void GameEngine::readGlobalKeys(){
 }
 
 void GameEngine::showMainMenu(){
-	Object3D * menu=new Object3D("mesh/plane.obj",&shader_programme,"textures/city1-3.png");
+	Object3D * menu=new Object3D("mesh/pantalla.obj",&shader_programme,"textures/city1-3.png");
 	menu->setPos(0,5,0);
+	//menu->set_scale(2,2,2);
 	addObj(menu);
 	cam->setPos(0,-1,0);
 	cam->target=menu;
-	cam->zoom(-2);
+	cam->zoom(2);
 	scenario_loaded=true;
 	paused=true;
 }
@@ -233,6 +237,13 @@ void GameEngine::loadScenario(std::string scenario_name){
 				pos.v[1]=atoi(n.child("position").attribute("y").value());
 				pos.v[2]=atoi(n.child("position").attribute("z").value());
 
+				std::string col_type=n.child("collider").attribute("type").value();
+
+				if(col_type=="box"){
+					test->attachCollider(1,1,1);
+					printf("Boxcollider attached \n");
+				}
+
 				xml_node scale=n.child("scale");
 				xml_node rotation=n.child("rotation");
 				
@@ -253,6 +264,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
 					test->rotate(rotation_x,rotation_y,rotation_z);	
 				}
+
 				//agregar ese objeto a la lista de objetos a renderizar
 				test->setPos(pos.v[0],pos.v[1],pos.v[2]);
 				addObj(test);
@@ -276,6 +288,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 				std::string tex=(n.child_value("texture"));
 				//instanciar un objeto 3D con el modelo especificado en el XML
 				
+
 				if(tex.length()>0){// si se encontro alguna textura especificada se asigna al objeto
 					obj=new Object3D(std::string(n.child_value("model")).c_str(),&shader_programme,tex.c_str());
 				}else{//sino se usa una textura NULL

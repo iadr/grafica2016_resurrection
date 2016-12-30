@@ -1,4 +1,5 @@
 #include "Object3D.h"
+#include "Collider.h"
 #include <math.h>
 #include <assimp/cimport.h> // C importer
 #include <assimp/scene.h> // collects data
@@ -248,6 +249,14 @@ bool Object3D::load_texture(const char* file_name){
 	glGetFloatv(GL_MAX_TEXTURE_MAX_ANISOTROPY_EXT, &max_aniso);
 	// set the maximum!
 	glTexParameterf (GL_TEXTURE_2D, GL_TEXTURE_MAX_ANISOTROPY_EXT, max_aniso);
-
 	return true;
+}
+
+void Object3D::attachCollider(int type,int width,int depth){
+	/*tipos de colliders
+		1:boxCollider
+	*/
+	if(type==1){
+		this->collider=new BoxCollider(this);
+	}
 }

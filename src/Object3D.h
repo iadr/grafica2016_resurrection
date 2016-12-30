@@ -1,5 +1,6 @@
 #ifndef OBJECT3D_H
 #define OBJECT3D_H
+
 #include <GL/glew.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
@@ -12,6 +13,8 @@
 
 //#include "Tools.h"
 #include "maths_funcs.h"
+#include "BoxCollider.h"
+class Collider;
 
 class Object3D{
 protected:
@@ -23,6 +26,7 @@ protected:
 	int mat_location=0;
 
 public:
+	Collider * collider=NULL;
 	glm::mat4 M;//matriz de transformacion
 	mat4 M2;
 	float rotateSpeed=0.025f;
@@ -47,6 +51,7 @@ public:
 	bool load_mesh(const char*);
 	bool load_texture(const char*);
 	void render();
+	void attachCollider(int type,int width,int depth);
 };
 
 
