@@ -197,11 +197,12 @@ void GameEngine::readGlobalKeys(){
 		loadScenario("map1");
 		enter_pressed=true;
 	}
-	if(!z_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_Z)){
+	if(firstTime&&!z_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_Z)){
 		printf("instrucciones\n");
 		objects.clear();
 		showInsMenu();
 		z_pressed=true;
+		firstTime=false;
 	}
 }
 
@@ -235,7 +236,7 @@ void GameEngine::showInsMenu(){
 void GameEngine::loadScenario(std::string scenario_name){
 	tools::debug("Cargando escenario: "+scenario_name,tools::DBG_MSG);
 	pause(true);
-
+	firstTime=false;
 	xml_document doc;
 	std::string file=("maps/"+scenario_name+".xml");
 	xml_parse_result result = doc.load_file(file.c_str());

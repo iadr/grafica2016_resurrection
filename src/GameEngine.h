@@ -29,6 +29,7 @@ private:
 	Camera*cam=NULL;
 	glm::vec2 screenSize;
 	std::vector<Object3D *> objects;//lista de objetos
+	bool firstTime=true;
 	bool scenario_loaded=false;
 	bool paused=false;
 	bool f1_pressed=false,f2_pressed=false,
