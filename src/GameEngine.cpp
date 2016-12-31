@@ -168,7 +168,7 @@ void GameEngine::readGlobalKeys(){
 
 	if(!f2_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F2)){
 		printf("F2\n");
-		loadScenario("map2");
+		loadScenario("map1.5");
 		f2_pressed=true;
 	}
 	else if(f2_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F2)){
@@ -287,7 +287,11 @@ void GameEngine::loadScenario(std::string scenario_name){
 
 				if(collider!=NULL){
 					printf("Agregando collider\n");
+					std::string render_collider=collider.attribute("render").value();
 					test->attachCollider(1,1,1);
+					if(render_collider=="true"){
+						test->renderCollider=true;
+					}
 				}
 
 				//agregar ese objeto a la lista de objetos a renderizar

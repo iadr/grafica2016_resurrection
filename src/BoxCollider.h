@@ -10,5 +10,6 @@ public:
 	BoxCollider();
 	~BoxCollider();
 	void setSize(float,float);
+	void render(GLuint*);
 };
 #endif

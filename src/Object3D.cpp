@@ -78,21 +78,23 @@ void Object3D::rotate(float x,float y,float z){
 	M=glm::translate(M,pos);
 	M=glm::scale(M,scale);
 	M=glm::rotate(M,-rotation.y,glm::vec3(0.0f,1.0f,0.0f));
+	if(this->hasCollider()){
+		this->collider->setPos(this->pos);
+	}
 	
 }
 
 void Object3D::render(){
-	/*
-	glUniformMatrix4fv (mat_location, 1, GL_FALSE, glm::value_ptr(M));
-	glBindVertexArray(getVao());
-	glDrawArrays(GL_TRIANGLES,0,getnumVertices());
-	*/
     glActiveTexture(GL_TEXTURE0);
     glBindVertexArray(this->vao);
     glBindTexture(GL_TEXTURE_2D, tex);
 	glUniformMatrix4fv(mat_location, 1, GL_FALSE, glm::value_ptr(M));
     glDrawElements(GL_TRIANGLES, FFACTOR*numFaces, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
+
+	if(this->hasCollider()&&renderCollider){
+		this->collider->render(this->shader_programme);
+	}
 
 }
 

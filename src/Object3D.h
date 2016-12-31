@@ -27,6 +27,7 @@ protected:
 	int mat_location=0;
 
 public:
+	bool renderCollider=false;
 	Collider * collider=NULL;
 	glm::mat4 M;//matriz de transformacion
 	mat4 M2;
