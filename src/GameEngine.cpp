@@ -39,6 +39,7 @@ void GameEngine::run(){
 	tools::debug("Engine is running",tools::DBG_INFO);
 	//paused=false;
 	GLuint filtro_loc= glGetUniformLocation (shader_programme, "filtropantalla");//conexion fragment
+
 	while(!glfwWindowShouldClose (g_window)){//bucle principal del motor de juegos
 		static double previous_seconds = glfwGetTime ();
 		double current_seconds = glfwGetTime ();
@@ -65,11 +66,8 @@ void GameEngine::run(){
 						objects[i]->update();//actualizar el objeto (posicion,rotacion,etc)
 							//printf("%f  %f  %f\n",test->pos.x,test->pos.y,test->pos.z);
 					}
-					if(i>0) glUniform1i(filtro_loc,0);//determina si utilizamos la luz o solo la textura
+					if(i>1) glUniform1i(filtro_loc,0);//determina si utilizamos la luz o solo la textura
 					objects[i]->render();//renderizar cada objeto en la lista
-					if(objects[i]->collider){
-						std::cout<<objects[i]->collider->pos_x;
-					}
 				}
 			}
 		}
@@ -194,6 +192,17 @@ void GameEngine::readGlobalKeys(){
 	else if(f4_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F4)){
 		f4_pressed=false;
 	}
+	if(!enter_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_ENTER)){
+		printf("LET'S PLAY!!!!\n");
+		loadScenario("map1");
+		enter_pressed=true;
+	}
+	if(!z_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_Z)){
+		printf("instrucciones\n");
+		objects.clear();
+		showInsMenu();
+		z_pressed=true;
+	}
 }
 
 void GameEngine::showMainMenu(){
@@ -205,6 +214,19 @@ void GameEngine::showMainMenu(){
 	addObj(menu);
 	cam->setPos(0,-1,0);
 	cam->target=menu;
+	cam->zoom(2);
+	scenario_loaded=true;
+	paused=true;
+}
+void GameEngine::showInsMenu(){
+	GLuint filtro_loc= glGetUniformLocation (shader_programme, "filtropantalla");
+	Object3D * menu2=new Object3D("mesh/pantalla.obj",&shader_programme,"textures/city1-4.png");
+	menu2->setPos(0,5,0);
+	//menu->set_scale(2,2,2);
+	glUniform1i(filtro_loc,1);
+	addObj(menu2);
+	cam->setPos(0,-1,0);
+	cam->target=menu2;
 	cam->zoom(2);
 	scenario_loaded=true;
 	paused=true;
@@ -240,13 +262,6 @@ void GameEngine::loadScenario(std::string scenario_name){
 				pos.v[1]=atoi(n.child("position").attribute("y").value());
 				pos.v[2]=atoi(n.child("position").attribute("z").value());
 
-				std::string col_type=n.child("collider").attribute("type").value();
-
-				if(col_type=="box"){
-					test->attachCollider(1,1,1);
-					printf("Boxcollider attached \n");
-				}
-
 				xml_node scale=n.child("scale");
 				xml_node rotation=n.child("rotation");
 
@@ -267,7 +282,6 @@ void GameEngine::loadScenario(std::string scenario_name){
 					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
 					test->rotate(rotation_x,rotation_y,rotation_z);
 				}
-
 				//agregar ese objeto a la lista de objetos a renderizar
 				test->setPos(pos.v[0],pos.v[1],pos.v[2]);
 				addObj(test);
@@ -290,7 +304,6 @@ void GameEngine::loadScenario(std::string scenario_name){
 				//obtener la textura
 				std::string tex=(n.child_value("texture"));
 				//instanciar un objeto 3D con el modelo especificado en el XML
-
 
 				if(tex.length()>0){// si se encontro alguna textura especificada se asigna al objeto
 					obj=new Object3D(std::string(n.child_value("model")).c_str(),&shader_programme,tex.c_str());

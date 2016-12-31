@@ -1,7 +1,7 @@
 #ifndef GAMEENGINE_H
 #define GAMEENGINE_H
 #include <GL/glew.h>
-#include <GLFW/glfw3.h> 
+#include <GLFW/glfw3.h>
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 #include <glm/gtc/type_ptr.hpp>
@@ -18,8 +18,6 @@
 #include "KeyTools.h"
 #include "pugixml.hpp"
 
-#include "BoxCollider.h"
-
 #define VERTEX_SHADER_FILE "shaders/test_vs.glsl.cpp"
 #define FRAGMENT_SHADER_FILE "shaders/test_fs.glsl.cpp"
 
@@ -30,12 +28,13 @@ private:
 	//Otros
 	Camera*cam=NULL;
 	glm::vec2 screenSize;
-	std::vector<Object3D *> objects;//lista de objetos 
+	std::vector<Object3D *> objects;//lista de objetos
 	bool scenario_loaded=false;
 	bool paused=false;
 	bool f1_pressed=false,f2_pressed=false,
 		 f3_pressed=false,f4_pressed=false,
-		 f5_pressed=false,f6_pressed=false;
+		 f5_pressed=false,f6_pressed=false,
+		 enter_pressed=false,z_pressed=false;
 public:
 	GameEngine();
 	~GameEngine();
@@ -49,5 +48,6 @@ public:
 	void addObj(Object3D *obj);
 	void pause(bool);
 	void showMainMenu();
+	void showInsMenu();
 };
 #endif
