@@ -1,5 +1,9 @@
 #include "BoxCollider.h"
+BoxCollider::BoxCollider():Collider(){
 
-BoxCollider::BoxCollider(Object3D* p):Collider(p){
+}
 
+void BoxCollider::setSize(float w,float d){
+	this->width=w;
+	this->depth=d;
 }

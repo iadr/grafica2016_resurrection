@@ -13,8 +13,9 @@
 
 //#include "Tools.h"
 #include "maths_funcs.h"
+#include "Collider.h"
 #include "BoxCollider.h"
-class Collider;
+
 
 class Object3D{
 protected:
@@ -52,6 +53,7 @@ public:
 	bool load_texture(const char*);
 	void render();
 	void attachCollider(int type,int width,int depth);
+	bool hasCollider();
 };
 
 

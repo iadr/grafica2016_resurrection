@@ -265,6 +265,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 
 				xml_node scale=n.child("scale");
 				xml_node rotation=n.child("rotation");
+				xml_node collider=n.child("collider");
 
 				if (scale!=NULL){//si se encontró un nodo de escalado dentro de player_car...
 					float scale_x=1.0f,scale_y=1.0f,scale_z=1.0f;
@@ -283,6 +284,12 @@ void GameEngine::loadScenario(std::string scenario_name){
 					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
 					test->rotate(rotation_x,rotation_y,rotation_z);
 				}
+
+				if(collider!=NULL){
+					printf("Agregando collider\n");
+					test->attachCollider(1,1,1);
+				}
+
 				//agregar ese objeto a la lista de objetos a renderizar
 				test->setPos(pos.v[0],pos.v[1],pos.v[2]);
 				addObj(test);

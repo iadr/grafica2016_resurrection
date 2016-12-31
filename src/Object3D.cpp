@@ -5,6 +5,7 @@
 #include <assimp/scene.h> // collects data
 #include <assimp/postprocess.h> // various extra operations
 #include "stb_image.h"
+
 Object3D::Object3D(const char* file_name,GLuint* shader_programme,const char* texture_name){
 	this-> shader_programme=shader_programme;
 	//assert(tools::load_mesh(file_name, &vao, &numvertices));
@@ -257,6 +258,12 @@ void Object3D::attachCollider(int type,int width,int depth){
 		1:boxCollider
 	*/
 	if(type==1){
-		this->collider=new BoxCollider(this);
+		this->collider=new BoxCollider();
+		this->collider->setSize(width,depth);
+		this->collider->setPos(this->pos);
 	}
+}
+
+bool Object3D::hasCollider(){
+	return this->collider!=NULL;
 }
