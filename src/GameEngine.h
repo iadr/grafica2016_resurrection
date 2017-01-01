@@ -21,6 +21,8 @@
 #include "Collider.h"
 #include "BoxCollider.h"
 
+#include "AudioManager.h"
+
 #define VERTEX_SHADER_FILE "shaders/test_vs.glsl.cpp"
 #define FRAGMENT_SHADER_FILE "shaders/test_fs.glsl.cpp"
 
@@ -39,13 +41,16 @@ private:
 		 f3_pressed=false,f4_pressed=false,
 		 f5_pressed=false,f6_pressed=false,
 		 enter_pressed=false,z_pressed=false;
+	AudioManager * audio=NULL;
 public:
 	GameEngine();
 	~GameEngine();
 	Vehicle* test;
+	glm::vec3 startPosition;
 	void setWindowSize(int w,int h);
 	void loadScenario(std::string scenario_name);
 	void initGl();
+	void initAudio();
 	void run();
 	void readInGameKeys();
 	void readGlobalKeys();

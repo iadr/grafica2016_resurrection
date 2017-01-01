@@ -1,6 +1,6 @@
 src= src/*.c src/*.cpp 
 output= bin/prog
-libs=-lGL -lGLEW -lglfw -lassimp 
+libs=-lGL -lGLEW -lglfw -lassimp -lopenal -lalut
 debug=1
 all:
 	clear

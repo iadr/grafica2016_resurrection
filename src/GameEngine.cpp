@@ -21,6 +21,10 @@ void GameEngine::setWindowSize(int w,int h){
 	tools::debug("New window size: "+std::to_string(w)+"x"+std::to_string(h),tools::DBG_INFO);
 }
 
+void GameEngine::initAudio(){
+	this->audio=new AudioManager();
+}
+
 void GameEngine::initGl(){
 	restart_gl_log ();
 	start_gl ();
@@ -36,6 +40,7 @@ void GameEngine::initGl(){
 }
 
 void GameEngine::run(){
+	//audio->test();
 	tools::debug("Engine is running",tools::DBG_INFO);
 	//paused=false;
 	GLuint filtro_loc= glGetUniformLocation (shader_programme, "filtropantalla");//conexion fragment
@@ -77,8 +82,15 @@ void GameEngine::run(){
 						*/
 						for(int ii=0;ii<objects.size();ii++){
 							if(objects[ii]->hasCollider()&&i==0&&objects[i]!=objects[ii]&&objects[i]->collider->overlaps(objects[ii]->collider)){
-								//printf("%f - ",elapsed_seconds);
+								printf("%f - ",elapsed_seconds);
 								printf("%s overlaps with %s\n",objects[i]->collider->id.c_str(),objects[ii]->collider->id.c_str());
+								
+								std::size_t found=objects[ii]->collider->id.find("cone_");
+
+								if(found !=std::string::npos){
+									test->brake();
+									test->setPos(startPosition.x,startPosition.y,startPosition.z);
+								}
 							}
 						}
 					}
@@ -86,7 +98,7 @@ void GameEngine::run(){
 			}
 		}
 		cam->update();
-		printf("\n");
+		//printf("\n");
 		glfwSwapBuffers (g_window);
 	}
 	glfwTerminate();
@@ -277,6 +289,10 @@ void GameEngine::loadScenario(std::string scenario_name){
 				pos.v[0]=atof(n.child("position").attribute("x").value());
 				pos.v[1]=atof(n.child("position").attribute("y").value());
 				pos.v[2]=atof(n.child("position").attribute("z").value());
+				
+				startPosition.x=pos.v[0];
+				startPosition.y=pos.v[1];
+				startPosition.z=pos.v[2];
 
 				xml_node scale=n.child("scale");
 				xml_node rotation=n.child("rotation");

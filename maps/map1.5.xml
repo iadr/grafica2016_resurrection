@@ -8,7 +8,7 @@
 			<position x="-0.5f" y="0" z="0f"></position>
 			<scale x="0.25" y="0.25" z="0.25"></scale>
 			<rotation y="-1.57"></rotation>
-			<collider type="box" width="1" depth="1" render="true"></collider>
+			<collider type="box" width="0.25" depth="0.25" render="true"></collider>
 		</player_car>
 
 		<Object3D name="cone_1">
@@ -24,7 +24,7 @@
 			<model>mesh/cone.obj</model>
 			<texture>textures/cone.png</texture>
 			<scale x="0.35" y="0.35" z="0.35"></scale>
-			<position x="0f" y="0" z="0"></position>
+			<position x="2f" y="0" z="0"></position>
 			<collider type="box" width="1" depth="1" render="true"></collider>
 		</Object3D>
 

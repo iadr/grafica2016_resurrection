@@ -80,7 +80,7 @@ void Vehicle::decelerate(){
 }
 
 void Vehicle::brake(){
-
+	velocity=0.0f;
 }
 
 void Vehicle::update(){
