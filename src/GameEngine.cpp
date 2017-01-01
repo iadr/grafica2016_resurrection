@@ -70,9 +70,9 @@ void GameEngine::run(){
 					objects[i]->render();//renderizar cada objeto en la lista
 					if(objects[i]->hasCollider()){
 						//printf("%s\n",objects[i]->collider->id.c_str());
-						printf("collider[%i] :(%f,%f)\n",i,objects[i]->collider->pos.x,objects[i]->collider->pos.z);
+						//printf("collider[%i] :(%f,%f)\n",i,objects[i]->collider->pos.x,objects[i]->collider->pos.z);
 						for(int ii=0;ii<objects.size();ii++){
-							if(i==0&&objects[i]!=objects[ii]&&objects[i]->collider->overlaps(objects[ii]->collider)){
+							if(objects[ii]->hasCollider()&&i==0&&objects[i]!=objects[ii]&&objects[i]->collider->overlaps(objects[ii]->collider)){
 								//printf("%f - ",elapsed_seconds);
 								printf("%s overlaps with %s\n",objects[i]->collider->id.c_str(),objects[ii]->collider->id.c_str());
 							}
@@ -270,9 +270,9 @@ void GameEngine::loadScenario(std::string scenario_name){
 
 				vec3 pos=vec3(0.0f,0.0f,0.0f);
 
-				pos.v[0]=atoi(n.child("position").attribute("x").value());
-				pos.v[1]=atoi(n.child("position").attribute("y").value());
-				pos.v[2]=atoi(n.child("position").attribute("z").value());
+				pos.v[0]=atof(n.child("position").attribute("x").value());
+				pos.v[1]=atof(n.child("position").attribute("y").value());
+				pos.v[2]=atof(n.child("position").attribute("z").value());
 
 				xml_node scale=n.child("scale");
 				xml_node rotation=n.child("rotation");
@@ -318,9 +318,9 @@ void GameEngine::loadScenario(std::string scenario_name){
 				std::string model=n.child_value("model");
 				vec3 pos=vec3(0.0f,0.0f,0.0f);
 
-				pos.v[0]=atoi(n.child("position").attribute("x").value());
-				pos.v[1]=atoi(n.child("position").attribute("y").value());
-				pos.v[2]=atoi(n.child("position").attribute("z").value());
+				pos.v[0]=atof(n.child("position").attribute("x").value());
+				pos.v[1]=atof(n.child("position").attribute("y").value());
+				pos.v[2]=atof(n.child("position").attribute("z").value());
 
 				std::cout<<"|->nombre:"<<objectName<<std::endl;
 				std::cout<<"|->modelo:"<<model<<std::endl;
