@@ -47,7 +47,7 @@ void main () {
 			Is = Ls * Ks * specular_factor; // final specular intensity
 		}
 
-		if(i==1){
+		if(i>0){
 			//filtro  spotlight
 			vec3 r_eye=normalize(vec3(view_mat*vec4(r,0.0)));
 			vec3 omega=normalize(position_eye-light_position_eye);

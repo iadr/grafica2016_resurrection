@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<map name="Test map 1.0" author="fr4j4"  rows="50" cols="50" height="0.025">
+<map name="Test map 1.0" author="fr4j4">
 	<player name="PLAYER_1">
 	</player>
 
@@ -8,15 +8,22 @@
 		<texture>textures/azulmate2-1.jpg</texture>
 		<position x="-18.0f" y="0" z="-18.75f"></position>
 		<scale x="0.25" y="0.25" z="0.25"></scale>
-		<collider type="box" width="0.25" depth="0.25" render="true"></collider>
+		<collider type="box" width="1" depth="1" render="true"></collider>
 	</player_car>
 
+	<Object3D name="mapa">
+		<model>mesh/cube.obj</model>
+		<texture>textures/cone.png</texture>
+		<scale x="0.0001" y="0.0001" z="0.0001"></scale>
+		<position x="0f" y="0f" z="0f"></position>
+		<collider type="box" width="20" depth="20" render="true"></collider>
+	</Object3D>
 	<Object3D name="cone_1">
 		<model>mesh/cone.obj</model>
 		<texture>textures/cone.png</texture>
 		<scale x="0.35" y="0.35" z="0.35"></scale>
-		<position x="-18.0f" y="0.125" z="-19.75f"></position>
-		<collider type="box" width="1" depth="1" render="true"></collider>
+		<position x="-18.0f" y="0" z="-18.75f"></position>
+		<collider type="box" width="1" depth="1" render="false"></collider>
 	</Object3D>
 
 	<Object3D name="city_floor">
@@ -92,7 +99,7 @@
 		<model>mesh/cube.obj</model>
 		<texture>textures/cone.png</texture>
 		<scale x="0.15" y="0.15" z="0.15"></scale>
-		<position x="-19,375f" y="0" z="-13.75f"></position>
+		<position x="-19,375f" y="0" z="-4.375f"></position>
 		<collider type="box" width="1.25" depth="3.75" render="true"></collider>
 	</Object3D>
 	<!-- <Object3D name="res_2">
@@ -145,6 +152,21 @@
 		<texture>textures/alpha.jpg</texture>
 		<scale x="5" y="5" z="5"></scale>
 		<position></position>
+	</Object3D>
+
+	<Object3D name="ge_1">
+		<model>mesh/cube.obj</model>
+		<texture>textures/cone.png</texture>
+		<scale x="0.15" y="0.15" z="0.15"></scale>
+		<position x="-14,375f" y="0" z="-17.5f"></position>
+		<collider type="box" width="3.75" depth="2.5" render="true"></collider>
+	</Object3D>
+	<Object3D name="ge_2">
+		<model>mesh/cube.obj</model>
+		<texture>textures/cone.png</texture>
+		<scale x="0.05" y="0.05" z="0.05"></scale>
+		<position x="-14,375f" y="0" z="-11.25f"></position>
+		<collider type="box" width="3.75" depth="5" render="true"></collider>
 	</Object3D>
 
 	<Object3D name="StreetLampfoco">
