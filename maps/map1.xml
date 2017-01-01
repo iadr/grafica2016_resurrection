@@ -16,7 +16,7 @@
 		<texture>textures/cone.png</texture>
 		<scale x="0.35" y="0.35" z="0.35"></scale>
 		<position x="-18.0f" y="0" z="-18.75f"></position>
-		<collider type="box" width="0.35" depth="0.35" render="true"></collider>
+		<collider type="box" width="1" depth="1" render="true"></collider>
 	</Object3D>
 
 	<Object3D name="city_floor">
