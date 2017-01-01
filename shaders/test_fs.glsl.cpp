@@ -29,11 +29,8 @@ void main () {
 	vec3 Is=vec3(0.0f,0.0f,0.0f);
 	for(int i=0;i<NLUCES;i++){
 		vec3 light_position_eye = vec3(view_mat * vec4 (light_position[i], 1.0));
-
 		// specular intensity (blinn shading)
-
 		if(i==0){
-
 			// diffuse intensity
 			// raise light position to eye space
 

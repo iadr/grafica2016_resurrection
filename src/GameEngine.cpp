@@ -81,7 +81,7 @@ void GameEngine::run(){
 						printf("	depth: %f\n",objects[i]->collider->depth);
 						*/
 						for(int ii=0;ii<objects.size();ii++){
-							if(objects[ii]->hasCollider()&&i==0&&objects[i]!=objects[ii]&&objects[i]->collider->overlaps(objects[ii]->collider)){
+							if(objects[ii]->hasCollider()&&objects[i]==test&&objects[i]!=objects[ii]&&objects[i]->collider->overlaps(objects[ii]->collider)){
 								printf("%f - ",elapsed_seconds);
 								printf("%s overlaps with %s\n",objects[i]->collider->id.c_str(),objects[ii]->collider->id.c_str());
 								
@@ -212,7 +212,7 @@ void GameEngine::readGlobalKeys(){
 
 	if(!f3_pressed&&GLFW_PRESS == glfwGetKey(g_window,GLFW_KEY_F3)){
 		printf("F3\n");
-		loadScenario("map3");
+		loadScenario("demo_colisiones");
 		f3_pressed=true;
 	}
 	else if(f3_pressed&&GLFW_RELEASE == glfwGetKey(g_window,GLFW_KEY_F3)){
@@ -277,6 +277,38 @@ void GameEngine::loadScenario(std::string scenario_name){
 	xml_parse_result result = doc.load_file(file.c_str());
 	if((bool)result){
 		objects.clear();
+		//std::cout<<doc.first_child().attribute("name").value()<<std::endl;
+		std::string grid=doc.first_child().attribute("grid").value();
+		if(grid=="true"){
+			int rows=atoi(doc.first_child().attribute("rows").value());
+			int cols=atoi(doc.first_child().attribute("cols").value());
+			float grid_h=atof(doc.first_child().attribute("height").value());
+			printf("drawing grid .... %ix%i\n",rows,cols);
+			int c=-rows/2;
+			for(int i =0;i<rows;i++,c++){
+				Object3D* line;
+				if(c!=0){
+					line=new Object3D("mesh/cube.obj",&shader_programme,"textures/red.jpg");
+				}else{
+					line=new Object3D("mesh/cube.obj",&shader_programme,"textures/green.png");
+				}
+				line->set_scale(100.0f,.025f,0.0125f);
+				line->setPos(0.0f,grid_h,c);
+				addObj(line);
+			}
+			c=-cols/2;
+			for(int i =0;i<cols;i++,c++){
+				Object3D* line;
+				if(c!=0){
+					line=new Object3D("mesh/cube.obj",&shader_programme,"textures/red.jpg");
+				}else{
+					line=new Object3D("mesh/cube.obj",&shader_programme,"textures/green.png");
+				}
+				line->set_scale(0.0125f,0.025f,100.0f);
+				line->setPos(c,grid_h,0.0f);
+				addObj(line);
+			}	
+		}
 		tools::debug("Analizando archivo de mapa...",tools::DBG_INFO);
 		for(xml_node n = doc.first_child().first_child();n;n=n.next_sibling()){
 			std::string nodeName=n.name();

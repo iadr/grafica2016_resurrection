@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<map name="Test map 1.0" author="fr4j4">
+<map name="Test map 1.0" author="fr4j4" grid="true" rows="50" cols="50" height="0.025">
 	<player name="PLAYER_1">
 	</player>
 
