@@ -46,7 +46,7 @@ public:
 	GameEngine();
 	~GameEngine();
 	Vehicle* test;
-	glm::vec3 startPosition;
+	glm::vec3 startPosition,lastPosition;
 	void setWindowSize(int w,int h);
 	void loadScenario(std::string scenario_name);
 	void initGl();

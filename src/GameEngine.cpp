@@ -90,7 +90,15 @@ void GameEngine::run(){
 								if(found !=std::string::npos){
 									test->brake();
 									test->setPos(startPosition.x,startPosition.y,startPosition.z);
+								}else{
+									printf("last!");
+									test->brake();
+									test->setPos(lastPosition.x,lastPosition.y,lastPosition.z);
 								}
+							}
+							else{
+								lastPosition=test->pos;
+								//printf("last=(%0.3f,%0.3f,%0.3f)\n",lastPosition.x,lastPosition.y,lastPosition.z);
 							}
 						}
 					}
@@ -293,6 +301,8 @@ void GameEngine::loadScenario(std::string scenario_name){
 				startPosition.x=pos.v[0];
 				startPosition.y=pos.v[1];
 				startPosition.z=pos.v[2];
+
+				lastPosition=startPosition;
 
 				xml_node scale=n.child("scale");
 				xml_node rotation=n.child("rotation");
