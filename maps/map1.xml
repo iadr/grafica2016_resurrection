@@ -8,7 +8,7 @@
 		<texture>textures/azulmate2-1.jpg</texture>
 		<position x="-18.0f" y="0" z="-18.75f"></position>
 		<scale x="0.25" y="0.25" z="0.25"></scale>
-		<collider type="box" width="0.5" depth="0.5" render="true"></collider>
+		<collider type="box" width="0.25" depth="0.25" render="true"></collider>
 	</player_car>
 
 	<Object3D name="cone_1">
