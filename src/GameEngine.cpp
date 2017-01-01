@@ -68,10 +68,21 @@ void GameEngine::run(){
 					}
 					if(i>1) glUniform1i(filtro_loc,0);//determina si utilizamos la luz o solo la textura
 					objects[i]->render();//renderizar cada objeto en la lista
+					if(objects[i]->hasCollider()){
+						//printf("%s\n",objects[i]->collider->id.c_str());
+						printf("collider[%i] :(%f,%f)\n",i,objects[i]->collider->pos.x,objects[i]->collider->pos.z);
+						for(int ii=0;ii<objects.size();ii++){
+							if(i==0&&objects[i]!=objects[ii]&&objects[i]->collider->overlaps(objects[ii]->collider)){
+								//printf("%f - ",elapsed_seconds);
+								printf("%s overlaps with %s\n",objects[i]->collider->id.c_str(),objects[ii]->collider->id.c_str());
+							}
+						}
+					}
 				}
 			}
 		}
 		cam->update();
+		printf("\n");
 		glfwSwapBuffers (g_window);
 	}
 	glfwTerminate();
@@ -288,7 +299,9 @@ void GameEngine::loadScenario(std::string scenario_name){
 				if(collider!=NULL){
 					printf("Agregando collider\n");
 					std::string render_collider=collider.attribute("render").value();
-					test->attachCollider(1,1,1);
+					float width=atof(collider.attribute("width").value());
+					float depth=atof(collider.attribute("depth").value());
+					test->attachCollider(1,width,depth,"player_car");
 					if(render_collider=="true"){
 						test->renderCollider=true;
 					}
@@ -329,6 +342,7 @@ void GameEngine::loadScenario(std::string scenario_name){
 					addObj(obj);
 					xml_node scale=n.child("scale");
 					xml_node rotation=n.child("rotation");
+					xml_node collider=n.child("collider");
 					if (scale!=NULL){//si se encontró un nodo de escalado dentro de player_car...
 						float scale_x=1.0f,scale_y=1.0f,scale_z=1.0f;
 						scale_x=atof(scale.attribute("x").value());
@@ -338,14 +352,26 @@ void GameEngine::loadScenario(std::string scenario_name){
 						obj->set_scale(scale_x,scale_y,scale_z);
 					}
 
-				if(rotation!=NULL){
-					float rotation_x=1.0f,rotation_y=1.0f,rotation_z=1.0f;
-					rotation_x=atof(rotation.attribute("x").value());
-					rotation_y=atof(rotation.attribute("y").value());
-					rotation_z=atof(rotation.attribute("z").value());
-					printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
-					obj->rotate(rotation_x,rotation_y,rotation_z);
-				}
+					if(rotation!=NULL){
+						float rotation_x=1.0f,rotation_y=1.0f,rotation_z=1.0f;
+						rotation_x=atof(rotation.attribute("x").value());
+						rotation_y=atof(rotation.attribute("y").value());
+						rotation_z=atof(rotation.attribute("z").value());
+						printf("Rotando a: (%.2f,%.2f,%.2f)\n",rotation_x,rotation_y,rotation_z);
+						obj->rotate(rotation_x,rotation_y,rotation_z);
+					}
+
+					if(collider!=NULL){
+						printf("Agregando collider\n");
+						std::string coll_id=n.attribute("name").value();
+						std::string render_collider=collider.attribute("render").value();
+						float width=atof(collider.attribute("width").value());
+						float depth=atof(collider.attribute("depth").value());
+						obj->attachCollider(1,width,depth,coll_id);
+						if(render_collider=="true"){
+							obj->renderCollider=true;
+						}
+					}
 				}
 			}else if(nodeName=="camera"){
 				vec3 pos=vec3(0.0f,0.0f,0.0f);

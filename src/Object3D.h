@@ -53,7 +53,7 @@ public:
 	bool load_mesh(const char*);
 	bool load_texture(const char*);
 	void render();
-	void attachCollider(int type,int width,int depth);
+	void attachCollider(int type,float width,float depth,std::string);
 	bool hasCollider();
 };
 

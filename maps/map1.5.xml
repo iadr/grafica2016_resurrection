@@ -5,11 +5,18 @@
 	<player_car>
 		<model>mesh/sedan.obj</model>
 		<texture>textures/azulmate2-1.jpg</texture>
-		<position x="-18.0f" y="0" z="-18.75f"></position>
+		<position x="0f" y="0" z="0f"></position>
 		<scale x="0.25" y="0.25" z="0.25"></scale>
-		<rotation x="0" y="-1.5f" z="0"></rotation>
-		<collider type="box" width="1" depth="1" render="true"></collider>
+		<collider type="box" width="2" depth="2" render="true"></collider>
 	</player_car>
+
+	<Object3D name="car_2">
+		<model>mesh/sedan.obj</model>
+		<texture>textures/8e244101fbb24ca1.jpg</texture>
+		<scale x="0.25" y="0.25" z="0.25"></scale>
+		<position x="0f" y="0" z="5"></position>
+		<collider type="box" width="2" depth="2" render="true"></collider>
+	</Object3D>
 
 	<camera>
 		<position x="2" y="5" z="0"></position>

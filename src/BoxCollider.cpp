@@ -1,7 +1,7 @@
 #include "BoxCollider.h"
 #include <iostream>
-BoxCollider::BoxCollider():Collider(){
-
+BoxCollider::BoxCollider(std::string id):Collider(id){
+	this->type=1;
 }
 
 void BoxCollider::setSize(float w,float d){
@@ -9,7 +9,7 @@ void BoxCollider::setSize(float w,float d){
 	this->depth=d;
 }
 void BoxCollider::render(GLuint* sp){
-	printf("rendering collider!.\n");
+	//printf("rendering collider!.\n");
     GLfloat qpoints[] = {
         0.4f, -0.3f, 0.0f,
         0.4f, -0.5f, 0.0f,
@@ -46,6 +46,27 @@ void BoxCollider::render(GLuint* sp){
 	glEnableVertexAttribArray(0);
 	glEnableVertexAttribArray(1);
 
-	
 
+	glUseProgram (*sp);
+	glBindVertexArray (qvao);
+	// draw points 0-3 from the currently bound VAO with current in-use shader
+	glDrawArrays (GL_QUADS, 0, 4);
+	
 }
+
+bool BoxCollider::overlaps(Collider * b){
+	bool over=false;
+	int type=b->getType();
+	if(type==this->type){
+		if(
+			this->pos.x+(this->width/2) > b->pos.x-(b->width/2) && 
+			this->pos.z+(this->width/2) > b->pos.z-(b->width/2) &&
+			this->pos.x-(this->width/2) < b->pos.x+(b->width/2) &&
+			this->pos.z-(this->width/2) < b->pos.z+(b->width/2)
+		){
+			over=true;
+		}
+	}
+	return over;	
+}
+

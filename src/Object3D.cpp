@@ -255,12 +255,12 @@ bool Object3D::load_texture(const char* file_name){
 	return true;
 }
 
-void Object3D::attachCollider(int type,int width,int depth){
+void Object3D::attachCollider(int type,float width,float depth,std::string id){
 	/*tipos de colliders
 		1:boxCollider
 	*/
 	if(type==1){
-		this->collider=new BoxCollider();
+		this->collider=new BoxCollider(id);
 		this->collider->setSize(width,depth);
 		this->collider->setPos(this->pos);
 	}

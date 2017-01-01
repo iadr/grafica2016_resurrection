@@ -1,15 +1,17 @@
 #ifndef BOXCOLLIDER_H
 #define BOXCOLLIDER_H
-
+#include <string>
 #include "Collider.h"
 
 class BoxCollider: public Collider{
 private:
-	int width=0,depth=0;//largo y ancho
+	
 public:
-	BoxCollider();
+	BoxCollider(std::string);
 	~BoxCollider();
 	void setSize(float,float);
 	void render(GLuint*);
+
+	bool overlaps(Collider* b);
 };
 #endif
