@@ -10,51 +10,12 @@ void BoxCollider::setSize(float w,float d){
 }
 void BoxCollider::render(GLuint* sp){
 	//printf("rendering collider!.\n");
-    GLfloat qpoints[] = {
-        0.4f, -0.3f, 0.0f,
-        0.4f, -0.5f, 0.0f,
-        -0.4f, -0.5f, 0.0f,
-        -0.4f, -0.3f, 0.0f
-    };
-
-    // ejercicio (1.5)
-    // colores quads
-    GLfloat qcolors[] = {
-        1.0f, 0.0f, 0.0f,
-        0.0f, 1.0f, 0.0f, 
-        0.0f, 0.0f, 1.0f,
-        1.0f, 1.0f, 1.0f
-    };
-
-    GLuint qvbo;
-	glGenBuffers (1, &qvbo);
-	glBindBuffer (GL_ARRAY_BUFFER, qvbo);
-	glBufferData (GL_ARRAY_BUFFER, 12 * sizeof (GLfloat), qpoints, GL_STATIC_DRAW);
-	
-	GLuint qcvbo;
-	glGenBuffers (1, &qcvbo);
-	glBindBuffer (GL_ARRAY_BUFFER, qcvbo);
-	glBufferData (GL_ARRAY_BUFFER, 12 * sizeof (GLfloat), qcolors, GL_STATIC_DRAW);
-
-	GLuint qvao;
-	glGenVertexArrays(1, &qvao);
-	glBindVertexArray(qvao);
-	glBindBuffer (GL_ARRAY_BUFFER, qvbo);
-	glVertexAttribPointer (0, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-	glBindBuffer (GL_ARRAY_BUFFER, qcvbo);
-	glVertexAttribPointer (1, 3, GL_FLOAT, GL_FALSE, 0, NULL);
-	glEnableVertexAttribArray(0);
-	glEnableVertexAttribArray(1);
-
-
-	glUseProgram (*sp);
-	glBindVertexArray (qvao);
-	// draw points 0-3 from the currently bound VAO with current in-use shader
-	glDrawArrays (GL_QUADS, 0, 4);
+    
 	
 }
 
 bool BoxCollider::overlaps(Collider * b){
+	/*
 	bool over=false;
 	int type=b->getType();
 	if(type==this->type){
@@ -67,6 +28,26 @@ bool BoxCollider::overlaps(Collider * b){
 			over=true;
 		}
 	}
-	return over;	
+	return over;*/
+
+    bool collisionX = 	(pos.x + (width/2.0f) >= b->pos.x - (b->width/2.0f) && pos.x + (width/2.0f) <= b->pos.x + (b->width/2.0f))
+    				||	(pos.x - (width/2.0f) <= b->pos.x + (b->width/2.0f) && pos.x - (width/2.0f) >= b->pos.x - (b->width/2.0f))
+    					;
+    
+    bool collisionZ = 	(pos.z + (depth/2.0f) >= b->pos.z - (b->depth/2.0f) && pos.z + (depth/2.0f) <= b->pos.z + (b->depth/2.0f))
+    				||	(pos.z - (depth/2.0f) <= b->pos.z + (b->depth/2.0f) && pos.z - (depth/2.0f) >= b->pos.z - (b->depth/2.0f))
+    					;
+
+	/*
+    if(id=="player_car"){
+		printf("pcx+w/2:%f\n",pos.x+(width/2.0f));  	
+    }
+	if(b->id=="cone_1"){
+		printf("cx-w/2:%f\n",b->pos.x-(b->width/2.0f));
+		printf("cx+w/2:%f\n",b->pos.x+(b->width/2.0f));
+		printf("colx: %i\n",collisionX);
+	}
+	*/
+    return collisionX && collisionZ;
 }
 

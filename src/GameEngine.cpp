@@ -69,8 +69,12 @@ void GameEngine::run(){
 					if(i>1) glUniform1i(filtro_loc,0);//determina si utilizamos la luz o solo la textura
 					objects[i]->render();//renderizar cada objeto en la lista
 					if(objects[i]->hasCollider()){
-						//printf("%s\n",objects[i]->collider->id.c_str());
-						//printf("collider[%i] :(%f,%f)\n",i,objects[i]->collider->pos.x,objects[i]->collider->pos.z);
+						/*
+						printf("%s\n",objects[i]->collider->id.c_str());
+						printf("collider[%i] :(%f,%f)\n",i,objects[i]->collider->pos.x,objects[i]->collider->pos.z);
+						printf("	width: %f\n",objects[i]->collider->width);
+						printf("	depth: %f\n",objects[i]->collider->depth);
+						*/
 						for(int ii=0;ii<objects.size();ii++){
 							if(objects[ii]->hasCollider()&&i==0&&objects[i]!=objects[ii]&&objects[i]->collider->overlaps(objects[ii]->collider)){
 								//printf("%f - ",elapsed_seconds);

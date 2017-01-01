@@ -1,32 +1,338 @@
-<?xml version="1.0"?>
-<map name="Test map 1.0" author="fr4j4">
-	<player name="PLAYER_1">
-	</player>
-	<player_car>
-		<model>mesh/sedan.obj</model>
-		<texture>textures/azulmate2-1.jpg</texture>
-		<position x="-1.0f" y="0" z="0f"></position>
-		<scale x="0.25" y="0.25" z="0.25"></scale>
-		<collider type="box" width="2" depth="2" render="true"></collider>
-	</player_car>
+	<?xml version="1.0"?>
+	<map name="Test map 1.0" author="fr4j4">
+		<player name="PLAYER_1">
+		</player>
+		<player_car>
+			<model>mesh/sedan.obj</model>
+			<texture>textures/azulmate2-1.jpg</texture>
+			<position x="-0.5f" y="0" z="0f"></position>
+			<scale x="0.25" y="0.25" z="0.25"></scale>
+			<rotation y="-1.57"></rotation>
+			<collider type="box" width="1" depth="1" render="true"></collider>
+		</player_car>
 
-	<Object3D name="cone_1">
-		<model>mesh/cone.obj</model>
-		<texture>textures/cone.png</texture>
-		<scale x="0.35" y="0.35" z="0.35"></scale>
-		<position x="0f" y="0" z="0"></position>
-		<collider type="box" width="1" depth="1" render="true"></collider>
-	</Object3D>
+		<Object3D name="cone_1">
+			<model>mesh/cone.obj</model>
+			<texture>textures/cone.png</texture>
+			<scale x="0.35" y="0.35" z="0.35"></scale>
+			<position x="-2f" y="0" z="0"></position>
+			<collider type="box" width="1" depth="1" render="true"></collider>
+		</Object3D>
 
-	<Object3D name="cone_2">
-		<model>mesh/cone.obj</model>
-		<texture>textures/cone.png</texture>
-		<scale x="0.35" y="0.35" z="0.35"></scale>
-		<position x="1f" y="0" z="0"></position>
-		<collider type="box" width="1" depth="1" render="true"></collider>
-	</Object3D>
 
-	<camera>
-		<position x="2" y="5" z="0"></position>
-	</camera>
-</map>
+		<Object3D name="cone_2">
+			<model>mesh/cone.obj</model>
+			<texture>textures/cone.png</texture>
+			<scale x="0.35" y="0.35" z="0.35"></scale>
+			<position x="0f" y="0" z="0"></position>
+			<collider type="box" width="1" depth="1" render="true"></collider>
+		</Object3D>
+
+
+		<Object3D name="cone_3">
+			<model>mesh/cone.obj</model>
+			<texture>textures/cone.png</texture>
+			<scale x="0.35" y="0.35" z="0.35"></scale>
+			<position x="0f" y="0" z="4"></position>
+			<collider type="box" width="1" depth="1" render="true"></collider>
+		</Object3D>
+
+
+		<!-- DE AQUI PARA ABAJO GRILLAS!! -->
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-10"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-9"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-8"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-7"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-6"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-5"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-4"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-3"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-2"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="-1"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/green.png</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="0"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="1"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="2"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="3"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="4"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="5"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="6"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="7"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="8"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="9"></position>
+		</Object3D>
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="0.0125" y="0.0125" x="50"></scale>
+			<position x="0" y="0" z="10"></position>
+		</Object3D>
+
+
+
+
+
+
+
+
+
+
+
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-10" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-9" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-8" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-7" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-6" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-5" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-4" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-3" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-2" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="-1" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/green.png</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="0" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="1" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="2" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="3" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="4" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="5" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="6" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="7" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="8" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="9" y="0" z="0"></position>
+		</Object3D>	
+
+		<Object3D name="">
+			<model>mesh/cube.obj</model>
+			<texture>textures/red.jpg</texture>
+			<scale z="50" y="0.0125" x="0.0125"></scale>
+			<position x="10" y="0" z="0"></position>
+		</Object3D>	
+
+
+
+
+		
+
+
+
+		<camera>
+			<position x="2" y="5" z="0"></position>
+		</camera>
+	</map>

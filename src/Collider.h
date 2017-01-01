@@ -15,7 +15,7 @@ class Collider{
 protected:
 	int type;
 public:
-	int width=0,depth=0;//largo y ancho
+	float width=0,depth=0;//largo y ancho
 	glm::vec3 pos; //posicion del collider 
 	std::string id;
 	float * pos_x,pos_y,pos_z;
