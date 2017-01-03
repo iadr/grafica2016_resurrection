@@ -10,13 +10,13 @@ vec3 distance_to_light_eye,direction_to_light_eye,surface_to_viewer_eye,half_way
 // fixed point light properties
 vec3 light_position[NLUCES]  = vec3[](vec3 (100.0, 100.0, 100.0),vec3(-17.5f,2.08f,-18.0f));
 vec3 Ls = vec3 (0.8, 0.8, 0.8); // white specular colour
-vec3 Ld = vec3 (0.2, 0.2, 0.2); // dull white diffuse light colour
-vec3 La = vec3 (0.2, 0.2, 0.2); // grey ambient colour
+vec3 Ld = vec3 (0.5, 0.5, 0.5); // dull white diffuse light colour
+vec3 La = vec3 (0.4, 0.4, 0.4); // grey ambient colour
 
 // surface reflectance
 vec3 Ks = vec3 (0.8, 0.8, 0.8); // fully reflect specular light
 vec3 Kd = vec3 (0.8, 0.8, 0.8); // diffuse surface reflectance
-vec3 Ka = vec3 (0.2, 0.2, 0.2); // fully reflect ambient light
+vec3 Ka = vec3 (0.4, 0.4, 0.4); // fully reflect ambient light
 float specular_exponent = 990; // specular 'power'
 vec3 r=vec3(0,-1,0);
 

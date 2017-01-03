@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<map name="Test map 1.0" author="fr4j4"  rows="50" cols="50" height="0.025">
+<map name="Test map 1.0" author="fr4j4" grid="false" rows="50" cols="50" height="0.025">
 	<player name="PLAYER_1">
 	</player>
 
@@ -9,6 +9,7 @@
 		<position x="-18.0f" y="0" z="-18.75f"></position>
 		<scale x="0.25" y="0.25" z="0.25"></scale>
 		<collider type="box" width="0.25" depth="0.25" render="true"></collider>
+		<rotation x="0" y="-1.57" z="0"></rotation>
 	</player_car>
 
 	<Object3D name="cone_1">
@@ -16,6 +17,46 @@
 		<texture>textures/cone.png</texture>
 		<scale x="0.35" y="0.35" z="0.35"></scale>
 		<position x="-18.0f" y="0.125" z="-19.75f"></position>
+		<collider type="box" width="1" depth="1" render="true"></collider>
+	</Object3D>
+
+	<Object3D name="cone_2">
+		<model>mesh/cone.obj</model>
+		<texture>textures/cone.png</texture>
+		<scale x="0.35" y="0.35" z="0.35"></scale>
+		<position x="-19.0f" y="0.125" z="-19.75f"></position>
+		<collider type="box" width="1" depth="1" render="true"></collider>
+	</Object3D>
+
+	<Object3D name="cone_3">
+		<model>mesh/cone.obj</model>
+		<texture>textures/cone.png</texture>
+		<scale x="0.35" y="0.35" z="0.35"></scale>
+		<position x="-17.0f" y="0.125" z="-19.75f"></position>
+		<collider type="box" width="1" depth="1" render="true"></collider>
+	</Object3D>
+
+	<Object3D name="cone_4">
+		<model>mesh/cone.obj</model>
+		<texture>textures/cone.png</texture>
+		<scale x="0.35" y="0.35" z="0.35"></scale>
+		<position x="-16.0f" y="0.125" z="-19.75f"></position>
+		<collider type="box" width="1" depth="1" render="true"></collider>
+	</Object3D>
+
+	<Object3D name="cone_5">
+		<model>mesh/cone.obj</model>
+		<texture>textures/cone.png</texture>
+		<scale x="0.35" y="0.35" z="0.35"></scale>
+		<position x="-15.0f" y="0.125" z="-15.75f"></position>
+		<collider type="box" width="1" depth="1" render="true"></collider>
+	</Object3D>
+
+	<Object3D name="cone_6">
+		<model>mesh/cone.obj</model>
+		<texture>textures/cone.png</texture>
+		<scale x="0.35" y="0.35" z="0.35"></scale>
+		<position x="-15.0f" y="0.125" z="-13.75f"></position>
 		<collider type="box" width="1" depth="1" render="true"></collider>
 	</Object3D>
 

@@ -153,7 +153,7 @@ void GameEngine::readInGameKeys(){
 				test->move_forward();
 			}
 		}
-		if(GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_DOWN)){
+		else if(GLFW_PRESS == glfwGetKey (g_window, GLFW_KEY_DOWN)){
 			tools::debug("DOWN",tools::DBG_KEY_PRESSED);
 			if(test!=NULL){
 				test->move_backward();
